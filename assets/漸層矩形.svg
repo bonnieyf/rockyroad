@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="418.453" height="62.745" viewBox="0 0 418.453 62.745">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.798" y1="0.5" x2="0.252" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#59e7d0"/>
+      <stop offset="1" stop-color="#ffa3d9"/>
+    </linearGradient>
+  </defs>
+  <g id="漸層矩形" transform="translate(-246.765 -92.744)">
+    <path id="路径_1712" data-name="路径 1712" d="M10.871,0h394.71c6,0,10.871,1.316,10.871,2.94V57.8c0,1.624-4.867,2.94-10.871,2.94H10.871C4.867,60.745,0,59.428,0,57.8V2.94C0,1.316,4.867,0,10.871,0Z" transform="translate(247.765 93.744)" stroke="#fff" stroke-width="2" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

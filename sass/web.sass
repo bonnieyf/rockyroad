@@ -1,0 +1,118 @@
+$borderStyle: 2px solid #3D3D3D
+@import _mixin
+@import _index
+@import _page
+
+body,html
+    margin: 0
+    padding: 0
+    min-height: 100vh
+    font-family: 'Noto Sans TC',"微軟正黑體", sans-serif
+
+    &.overflow
+        overflow: hidden
+
+    &.index
+        background: linear-gradient(-90deg, #FEBCDD 0%,#FEBCDD 20%,#BECFD7 50% #6BE6D0 80%,#6BE6D0 100%) 0% 0% no-repeat
+
+#loading
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: #2C2A2A
+    z-index: 7000
+
+    .content
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translateX(-50%) translateY(-55%)
+        width: 700px
+        height: auto
+        text-align: center
+
+    .loading-bar
+        position: relative
+        width: 100%
+        height: 60px
+        background: linear-gradient(90deg, #EFCCD8 0%,#E9C7D7 10%, #AAE7CF 20%, #AAE7CF 100%) 0% 0% no-repeat
+        margin-bottom: 20px
+        overflow: hidden
+
+
+    .dot
+        animation: dot-elastic 1s infinite linear
+
+        &:nth-child(2)
+            animation-delay: .2s
+        &:nth-child(3)
+            animation-delay: .2s
+
+    .progress
+        position: absolute
+        top: 10px
+        left: 0
+        bottom: 10px
+        width: 0
+        background-image: linear-gradient(90deg, transparent 50%, #ffffff 50%)
+        background-position: 0 0
+        background-size: 30px auto
+
+
+.big-logo
+    opacity: 0
+
+@keyframes dot-elastic
+  0%
+    transform: scale(1, 1)
+
+  25%
+    transform: scale(1, 1)
+
+  50%
+    transform: scale(1, 1.5)
+
+  75%
+    transform: scale(1, 1)
+
+  100%
+    transform: scale(1, 1)
+
+
+
+
+#alert-rotate
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background: radial-gradient(circle, #F5E4DC 7%, #EAC6D8 20%, #CFC8E0 41%, #BCEDF8 96%, #E5EDEF 100%)
+    z-index: 2000
+    text-align: center
+    display: none
+    
+    .content
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translateX(-50%) translateY(-55%)
+        width: 890px
+
+    .icon
+        max-width: 400px
+        margin: 0 auto 50px
+
+        img
+            max-width: 100%
+
+    h3,p
+        font-weight: bold
+
+    h3
+        font-size: 36px
+
+    p
+        font-size: 30px

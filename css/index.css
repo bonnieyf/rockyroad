@@ -1,0 +1,118 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: -webkit-gradient(linear, right top, left top, from(#FEBCDD), color-stop(20%, #FEBCDD), color-stop(50%, #BECFD7), to(#6BE6D0)) 0% 0% no-repeat;
+  background: linear-gradient(-90deg, #FEBCDD 0%, #FEBCDD 20%, #BECFD7 50% #6BE6D0 80%, #6BE6D0 100%) 0% 0% no-repeat;
+  min-height: 100vh;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2C2A2A;
+  z-index: 1000;
+  display: none;
+}
+#loading .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-55%);
+          transform: translateX(-50%) translateY(-55%);
+  width: 978px;
+  height: auto;
+  text-align: center;
+}
+#loading .loading-bar {
+  position: relative;
+  width: 100%;
+  height: 97px;
+  background: -webkit-gradient(linear, left top, right top, from(#EFCCD8), color-stop(10%, #E9C7D7), color-stop(20%, #AAE7CF), to(#AAE7CF)) 0% 0% no-repeat;
+  background: linear-gradient(90deg, #EFCCD8 0%, #E9C7D7 10%, #AAE7CF 20%, #AAE7CF 100%) 0% 0% no-repeat;
+  margin-bottom: 28px;
+}
+#loading .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/loading-progress.svg) no-repeat 0 0;
+}
+
+#home {
+  padding: 24px;
+}
+
+.home-content {
+  border: 2px solid #3D3D3D;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #3D3D3D;
+}
+
+.border-right {
+  border-right: 2px solid #3D3D3D;
+}
+
+.header img {
+  display: block;
+  width: 100%;
+}
+.header .btn-ins {
+  padding: 40px 20px;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main img {
+  display: block;
+  max-width: 100%;
+}
+
+.main-navi-t-r {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main-navi-b-r {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.main-bottom {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background: url(../images/home-bottom.svg) repeat-x left bottom;
+  background-size: 100% auto;
+}
+.main-bottom .car {
+  width: 286px;
+  margin: 0 auto;
+}
+.main-bottom .copyright {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  z-index: 10;
+}

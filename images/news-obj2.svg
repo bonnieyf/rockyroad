@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="201.52" height="151.105" viewBox="0 0 201.52 151.105">
+  <defs>
+    <filter id="パス_3105" x="0" y="3.246" width="201.52" height="147.859" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#a09f9f" flood-opacity="0.749"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.323" stop-color="#f4e3d6"/>
+      <stop offset="0.372" stop-color="#f2dad6"/>
+      <stop offset="0.565" stop-color="#edbbd6"/>
+      <stop offset="0.673" stop-color="#ecb0d7"/>
+      <stop offset="0.717" stop-color="#e0b4d6"/>
+      <stop offset="0.797" stop-color="#c0bfd4"/>
+      <stop offset="0.902" stop-color="#8ed2d1"/>
+      <stop offset="1" stop-color="#59e6ce"/>
+    </linearGradient>
+  </defs>
+  <g id="右下" transform="translate(0.5 0.5)">
+    <path id="パス_3104" data-name="パス 3104" d="M1627.386,1530.587" transform="translate(-1508.991 -1422.009)" fill="#95f9b2"/>
+    <g transform="matrix(1, 0, 0, 1, -0.5, -0.5)" filter="url(#パス_3105)">
+      <path id="パス_3105-2" data-name="パス 3105" d="M1668.326,1478.926c2.828-17.949-17.151-36.009-44.626-40.338a74.51,74.51,0,0,0-17.692-.7c.833-16.632-15.393-32.375-37.656-35.883-23.417-3.69-44.642,7.554-47.409,25.113a24.539,24.539,0,0,0-.249,5.32c-19.669-.119-36.028,9.883-38.344,24.587-2.658,16.867,14.169,33.532,37.585,37.221a58.827,58.827,0,0,0,10.708.708,15.151,15.151,0,0,0-1.893,5.268c-2.233,14.174,16.589,28.916,42.04,32.926s47.895-4.23,50.128-18.4a16.6,16.6,0,0,0-2.016-10.5C1644.107,1506.414,1665.687,1495.68,1668.326,1478.926Z" transform="translate(-1481.57 -1397.56)" fill="#a7ffe3"/>
+    </g>
+    <g id="グループ_850" data-name="グループ 850" transform="translate(5.622 32.79)">
+      <path id="パス_3106" data-name="パス 3106" d="M1659.76,1450.064c-1.982-7.3-12.75-11.7-30.321-12.4a156.175,156.175,0,0,0-21.322.75c.034.233.064.467.091.7,5.809-.574,11.3-.861,16.373-.861,19.13,0,32.346,4.062,34.5,11.992,1.894,6.976-5.061,15.945-19.583,25.257-14.634,9.382-35.162,17.936-57.8,24.086s-44.676,9.155-62.045,8.468c-17.237-.685-27.773-4.9-29.669-11.878-.889-3.275.172-6.99,3.051-10.972q-.242-.252-.477-.506c-3.069,4.211-4.206,8.161-3.255,11.662,1.982,7.3,12.75,11.7,30.321,12.4q2.46.1,5.04.1c16.562,0,36.645-3,57.218-8.589,22.708-6.168,43.306-14.753,58-24.173C1654.681,1466.607,1661.742,1457.361,1659.76,1450.064Z" transform="translate(-1488.973 -1437.568)"/>
+    </g>
+    <ellipse id="楕円形_219" data-name="楕円形 219" cx="14.632" cy="24.856" rx="14.632" ry="24.856" transform="translate(15.398)" fill="#fff" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <ellipse id="楕円形_220" data-name="楕円形 220" cx="14.632" cy="24.856" rx="14.632" ry="24.856" transform="translate(39.372)" fill="#fff" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <ellipse id="楕円形_221" data-name="楕円形 221" cx="8.187" cy="18.422" rx="8.187" ry="18.422" transform="translate(20.673 5.641)" fill="url(#linear-gradient)"/>
+    <g id="グループ_851" data-name="グループ 851" transform="translate(21.787 11.335)">
+      <circle id="楕円形_222" data-name="楕円形 222" cx="13.659" cy="13.659" r="13.659" fill="#fff"/>
+      <circle id="楕円形_223" data-name="楕円形 223" cx="13.659" cy="13.659" r="13.659" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+    <ellipse id="楕円形_224" data-name="楕円形 224" cx="8.187" cy="18.422" rx="8.187" ry="18.422" transform="translate(46.633 5.641)" fill="url(#linear-gradient)"/>
+    <g id="グループ_852" data-name="グループ 852" transform="translate(49.288 11.335)">
+      <circle id="楕円形_225" data-name="楕円形 225" cx="13.659" cy="13.659" r="13.659" fill="#fff"/>
+      <circle id="楕円形_226" data-name="楕円形 226" cx="13.659" cy="13.659" r="13.659" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+    <path id="長方形_418" data-name="長方形 418" d="M0,0H12.692a0,0,0,0,1,0,0V2.16a6.3,6.3,0,0,1-6.3,6.3h0A6.391,6.391,0,0,1,0,2.071V0A0,0,0,0,1,0,0Z" transform="translate(35.847 50.417)"/>
+  </g>
+</svg>

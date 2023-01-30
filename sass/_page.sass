@@ -1,0 +1,724 @@
+$r0: 0.9
+$r: 0.7
+$r2: 0.85
+
+#header
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+    background: white
+    border-bottom: $borderStyle
+    overflow: hidden
+    z-index: 3000
+    text-align: center
+    padding-left: 30px
+    box-sizing: border-box
+
+    img
+        width: 100%
+
+    .logo
+        display: inline-block
+        width: 100px * $r
+        transform: scale(1.3) translateY(5px)
+
+    .btns
+        display: flex
+        float: right
+
+        a
+            display: block
+            width: 100px * $r
+            border-left: $borderStyle
+
+
+#navigation-box
+    position: fixed
+    top: 120px * $r
+    right: 5px
+    width: 485px * $r
+    height: auto
+    background-color: #fff
+    z-index: 100
+    padding: 3px
+    box-sizing: border-box
+    border-radius: 10px
+    overflow: hidden
+    box-shadow: 0 0 15px rgba(black,.2)
+    transform: translateX(200px)
+    display: none
+    opacity: 0
+
+    .group
+        display: flex
+        flex-flow: wrap
+
+        .item
+            position: relative
+            flex: 50%
+            padding: 3px
+            box-sizing: border-box
+
+        a
+            position: relative
+            display: block
+            border-radius: 10px
+            overflow: hidden
+
+        img,svg
+            position: relative
+            width: 100%
+            height: auto
+            z-index: 20
+            display: block
+
+        .bg
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            z-index: 1
+            background: linear-gradient(90deg, #FED0EB 10%,#D8E0E9 50%,#AAF2E6 100%) 0% 0% no-repeat
+            z-index: 1
+
+        .ovr-bg
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            z-index: 2
+            background: linear-gradient(90deg, #FFA3D9 15%,#59E7D0 100%) 0% 0% no-repeat
+            transition: all .8s ease
+            opacity: 0
+
+        a:hover
+            .peo
+                transform: translate(0) rotate(0deg) scale(1)
+                opacity: 1
+
+            .hidden-text
+                opacity: 0
+
+        a:hover 
+            .ovr-bg
+                opacity: 1
+                
+
+
+.nav-1
+    .peo
+        transform-origin: left top
+        transform: translate(300px) scale(2)
+        opacity: 1
+        transition: all .5s ease
+
+    .hidden-text
+        opacity: 1
+        transition: all .5s ease
+
+.nav-2
+    .peo
+        transform-origin: right top
+        transform: translate(300px) rotate(90deg) scale(1.5)
+        opacity: 1
+        transition: all .5s ease
+
+    .hidden-text
+        opacity: 1
+        transition: all .5s ease
+
+.nav-3
+    .peo
+        transform-origin: right bottom
+        transform: translate(300px) scale(2)
+        opacity: 1
+        transition: all .5s ease
+
+    .hidden-text
+        opacity: 1
+        transition: all .5s ease
+
+
+.nav-4
+    .peo
+        transform-origin: right bottom
+        transform: translate(300px) rotate(90deg) scale(1.5)
+        opacity: 1
+        transition: all .5s ease
+
+    .hidden-text
+        opacity: 1
+        transition: all .5s ease
+
+.container
+    position: relative
+    max-width: 1700px
+    padding-left: 15px
+    padding-right: 15px
+    margin: 0 auto
+
+    +desktop_sm
+        max-width: 900px
+
+    +desktop_md
+        max-width: 1300px
+
+    +desktop_xl
+        max-width: 1600px
+
+#page
+    padding-top: 100px * $r
+
+#knowledge
+    position: relative
+    width: 100%
+    height: 100vh
+    background: linear-gradient(-90deg, #6BE6D0 0%,#F9C5E0 100%) 0% 0% no-repeat
+
+    img
+        max-width: 100%
+
+    .title
+        padding-top: 60px * $r
+        width: 300px * $r
+        margin-left: -64px * $r
+
+        +desktop_xl
+            padding-top: 60px * $r0
+            width: 300px * $r0
+            margin-left: -64px * $r0
+
+
+
+
+.knowledge-box
+    display: flex
+    .cloumns
+        flex: 33.3%
+
+    img
+        display: block
+    a
+        display: inline-block
+        position: relative
+        width: 100%
+        text-decoration: none
+        margin-bottom: 30px
+
+    .cloumns
+        margin-top: -52px * $r
+
+        &:nth-child(3)
+            margin-top: -200px * $r
+
+    .dialog
+        position: absolute
+        border-radius: 20px
+        background-color: rgba(#F7F1EB,.88)
+        padding: 20px
+        max-width: 320px
+        opacity: 0
+        transition: all .4s ease-in-out
+
+        .dialog-arrow
+            display: block
+            position: absolute
+            width: 58px * $r
+            height: auto
+
+        p
+            color: #000000
+            font-size: 18px
+            line-height: 1.5
+            margin: 0
+
+            storng
+                color: #FF00FF
+
+        h3
+            color: black
+            font-size: 24px
+            font-weight: normal
+            line-height: 1.5
+            margin: 0
+            margin-bottom: 20px
+
+        
+
+.knowledge1
+    padding-left: 43px * $r
+    padding-bottom: 50px * $r
+    img
+        width: 588px * $r
+
+        +desktop_xl
+            width: 588px * $r0
+    
+    .dialog
+        top: 20%
+        right: -400px
+        z-index: 200
+        opacity: 0
+        transform: translateX(-100px)
+
+    &:hover .dialog
+        opacity: 1
+        transform: translateX(0)
+            
+    .dialog-arrow
+        top: 50px
+        left: -40px
+        opacity: .88
+
+.knowledge2 
+    padding-bottom: 50px * $r
+    padding-right: 45px * $r
+    padding-bottom: 87px * $r
+
+    img
+        float: right
+        width: 552px * $r
+        +desktop_xl
+            width: 552px * $r0
+
+    .dialog
+        top: 140px
+        left: -350px
+        z-index: 200
+        opacity: 0
+        transform: translateX(100px)
+
+    &:hover .dialog
+        opacity: 1
+        transform: translateX(0)
+
+    .dialog-arrow
+        top: 50px
+        right: -40px
+        opacity: .88
+
+
+.knowledge3
+    padding-left: 124px * $r
+    padding-bottom: 24px * $r
+    img
+        width: 539px * $r
+        +desktop_xl
+            width: 539px * $r0
+
+    .dialog
+        bottom: 30%
+        right: -360px
+        z-index: 200
+        opacity: 0
+        transform: translateX(-100px)
+
+    &:hover .dialog
+        opacity: 1
+        transform: translateX(0)
+
+    .dialog-arrow
+        bottom: 80px
+        left: -40px
+        opacity: .88
+
+.knowledge4
+    img
+        float: right
+        width: 560px * $r
+        +desktop_xl
+            width: 560px * $r0
+
+    .dialog
+        top: 0
+        left: -380px
+        z-index: 200
+        opacity: 0
+        transform: translateX(100px)
+
+    &:hover .dialog
+        opacity: 1
+        transform: translateX(0)
+
+    .dialog-arrow
+        top: 50px
+        right: -40px
+        opacity: .88
+
+
+.btn-knowledge
+    .peo-box
+        transition: all .4s ease
+    &:hover
+        .peo-box
+            transform: scale(1.02)
+        .peo
+            animation: bounce2 3s ease-in infinite alternate
+
+@keyframes bounce2
+    0%, 20%, 50%, 80%, 100%
+        transform: translateY(0)
+    40%
+        transform: translateY(-30px)
+    60%
+        transform: translateY(-15px)
+
+
+.card-top
+    width: 100%
+    height: 100px * $r
+    background-size: auto 100%
+    border-top: $borderStyle
+    border-bottom: $borderStyle
+    overflow: hidden
+
+
+.card-marquee
+    width: 100%
+    height: 100%
+    background-repeat: repeat
+    text-align: center
+    background-image: url(../images/card-top.svg)
+    background-position: 0 center
+    background-size: 100% auto
+    background-repeat: repeat
+    animation: knowledgeMarquee2Up 50s infinite linear
+
+    &.down
+        animation-name: marqueeDown
+
+@keyframes knowledgeMarquee2Up
+  0%
+    background-position: 0
+
+  100%
+    background-position: -4310px
+
+.swiper-wrapper
+  align-items: end
+
+#card
+    .content
+        position: relative
+        padding-left: 110px * $r
+    .title
+        position: absolute
+        top: 120px * $r
+        left: 110px * $r
+        width: 120px * $r
+        height: auto
+
+    .main
+        padding-top: 120px * $r
+        padding-left: 240px * $r
+
+    .slide
+        padding-left: 20px
+        padding-bottom: 20px
+
+    .swiper-slide
+        transform: scale(0.85)
+        transform-origin: center bottom
+        transition: all .4s ease
+
+        &.swiper-slide-active
+            transform: scale(1)
+
+            &+.swiper-slide
+                transform: scale(0.85) translateX(5%)
+                
+
+    .card-box
+        border: $borderStyle
+        box-sizing: border-box
+        min-height: 1100px * $r
+        user-select: none
+        cursor: grab
+
+        img
+            width: 100%
+
+    .desc
+        padding: 16px * $r
+        text-align: center
+        padding-bottom: 55px * $r
+        strong
+            display: block
+            font-weight: normal
+
+        p
+            font-size: 20px
+            line-height: 1.5
+        
+
+.card1
+    position: relative
+    .obj
+        position: absolute
+        bottom: -17px
+        right: -25px
+        width: 190px
+
+.card2
+    background: url(../images/card2-bg.png) no-repeat 0 bottom
+    background-size: 100% auto
+
+.card3
+    position: relative
+    .obj
+        position: absolute
+        bottom: 0
+        left: -12px
+        width: 150px
+
+
+.card4
+    background: url(../images/card4-bg.png) no-repeat 0 bottom
+    background-size: 100% auto
+
+
+.card5
+    background: url(../images/card5-bg.svg) no-repeat 0 bottom
+    background-size: 100% auto
+    
+
+.card6
+    position: relative
+    background: linear-gradient(-180deg, #D3FEA3 0%,#fff 100%) 0% 0% no-repeat
+    padding-bottom: 100px * $r
+    .obj
+        position: absolute
+        bottom: -10px * $r
+        right: -17px * $r
+        width: 173px * $r
+
+
+
+#sambo
+    padding-top: 200px * $r
+    padding-bottom: 50px * $r
+    background: linear-gradient(0deg, #6AE0D0 0% ,#6AE0D0 8%,#ACC9D4 15%,#EEB4D8 30%,#F6E8DC 50%,#FFF 100%) 0% 0% no-repeat
+    .title
+        text-align: right
+        margin-bottom: 50px * $r
+
+        img
+            width: 352px * $r
+
+    .btn-next
+        text-align: right
+
+.sambo-nav
+    a
+        position: relative
+        display: inline-block
+        margin-right: 50px * $r
+        
+    img
+        transition: all .5s ease
+        height: 220px * $r              
+        &.hover
+            opacity: 0
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: auto
+
+    a:hover img.default
+        opacity: 0
+    a:hover img.hover
+        opacity: 1
+        transform: scale(1.1)
+
+    a.active img.default
+        opacity: 1
+    a.active img.hover
+        opacity: 1
+        transform: scale(1)
+
+.sambo-main
+    max-width: 1700px
+
+    img
+        max-width: 100%
+
+.btn-next
+    text-align: right
+    svg
+        width: 350px * $r
+
+#news
+    background: radial-gradient(circle, #F5E6DC 20%, #EFC9D8 50%, #DACAE2 60%, #CAE5FA 90%, #CAE5FA 100%)
+
+    .title
+        position: relative
+        padding-top: 60px * $r
+        width: 300px * $r
+        margin-left: -74px * $r
+        z-index: 200
+
+    .content
+        width: 80%
+        margin-left: auto
+        margin-right: auto
+        margin-top: -200px * $r
+        padding-bottom: 50px
+
+        &.full
+            width: 95%
+
+
+
+    .btn-next
+        margin-top: 50px
+        margin-right: -10px
+
+        &.for-news-detail
+            margin-top: -30px
+            margin-right: -50px
+
+
+.item-article
+    border-radius: 0 150px 0 0
+    box-sizing: border-box
+    padding: 40px
+    padding-bottom: 20px
+    padding-top: 50px
+    background-color: #fff
+    height: 100%
+    box-shadow: 8px 8px 0 #3F3F3F
+    cursor: pointer
+    user-select: none
+
+    a
+        color: black
+        text-decoration: none
+
+
+    h3
+        display: inline-block
+        font-size: 36px
+        font-weight: 900
+        margin: 0
+        margin-bottom: 20px
+        font-family: 'Noto Sans TC',"微軟正黑體", sans-serif
+
+    p
+        font-size: 20px
+        line-height: 1.5
+        font-family: 'Noto Sans TC',"微軟正黑體", sans-serif
+        margin: 0
+        margin-bottom: 20px
+
+    .textbox
+        display: flex
+        margin-bottom: 20px
+
+        &.wrap
+            flex-flow: wrap
+
+        .img
+            padding-right: 25px
+
+    img.max-img
+        max-width: 200px
+
+    .more
+        border-top: 1px solid black
+        text-align: right
+        padding-top: 20px
+
+        &.fix-bottom
+            padding-top: 50px
+        img
+            margin-right: -10px
+            width: 232px *$r
+
+.gridbox
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(3, 1fr)
+    grid-column-gap: 30px
+    grid-row-gap: 30px
+
+    .item-article
+        position: relative
+
+        .obj img
+            max-width: 100%
+
+    .arti1
+        grid-area: 1 / 1 / 2 / 4
+    .arti2
+        grid-area: 2 / 1 / 4 / 2
+    .arti3
+        grid-area: 2 / 2 / 3 / 3
+
+        .obj
+            position: absolute
+            bottom: 12%
+            left: -15px
+            width: 260px *$r
+    .arti4
+        grid-area: 3 / 2 / 4 / 3
+        .obj
+            position: absolute
+            bottom: 25%
+            right: 0
+            width: 186px *$r
+
+#footer
+    text-align: center
+
+
+.news-item
+    border-radius: 30px
+    box-shadow: 0 0 20px rgba(black,.5)
+    background-color: #fff
+    padding: 55px
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+    grid-column-gap: 30px
+    grid-row-gap: 30px
+
+    img
+        width: 100%
+
+    .news-img
+        grid-area: 1 / 1 / 3 / 3
+    .news-detail
+        grid-area: 1 / 3 / 2 / 6
+    .news-chat
+        grid-area: 2 / 3 / 3 / 6
+
+    .news-detail
+        border: 1px solid black
+        padding: 20px
+
+        h3,p
+            margin: 0
+
+
+        .desc
+            padding-top: 10px
+
+            p
+                font-size: 16px
+                line-height: 1.6
+
+
+    .news-title
+        display: flex
+        h3,p
+            flex: 50%
+            font-size: 22px
+            font-weight: 900
+
+        p
+            text-align: right

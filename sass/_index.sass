@@ -1,0 +1,268 @@
+
+#home
+    padding: 24px
+    overflow: hidden
+
+.home-content
+    border: $borderStyle
+
+.border-bottom
+    border-bottom: $borderStyle
+
+.border-right
+    border-right: $borderStyle
+
+.header
+    display: grid
+    grid-template-rows: 120px auto 80px
+
+    .logo
+        overflow: hidden
+        a
+            display: flex
+            align-items: center
+            justify-content: center
+            height: 100%
+            background-color: #FFE266
+
+    img,svg
+        display: block
+        width: 100%
+        height: auto
+
+    .btn-ins
+        display: flex
+        align-items: center
+        justify-content: center
+        img
+            max-width: 42px
+            
+
+.flex
+    display: flex
+
+
+.nav-game
+    a
+        display: block
+        position: relative
+    .default
+        position: relative
+        z-index: 20
+
+    path
+        transition: all .3s ease
+        
+    .hover
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        z-index: 1
+
+    &:hover
+        .hover
+            transform: translateX(10%) translateY(50%)
+
+        #text-start path
+            fill: #FF4BED !important
+        #text-start-line
+            stroke: #FF4BED !important
+.text-marquee2
+    width: 50px
+    height: 100%
+    background-repeat: repeat
+    text-align: center
+    background-image: url(../images/home-news-ticker2.svg)
+    background-size: 50px auto
+    background-repeat: repeat
+    animation: marquee2Up 50s infinite linear
+
+    &.down
+        animation-name: marqueeDown
+
+@keyframes marquee2Up
+  0%
+    background-position: 0 0
+
+  100%
+    background-position: 0 -4310px
+
+.text-marquee
+    float: left
+    width: 50%
+    height: 100%
+    text-align: center
+    background-image: url(../images/home-news-ticker1.svg)
+    background-size: 60px auto
+    background-repeat: repeat
+    animation: marqueeUp 50s infinite linear
+
+    &.down
+        animation-name: marqueeDown
+
+.clear
+    clear: both
+
+@keyframes marqueeUp
+  0%
+    background-position: 0 0
+
+  100%
+    background-position: 0 -2721px
+
+@keyframes marqueeDown
+  0%
+    background-position: 0 0
+
+  100%
+    background-position: 0 2721px
+
+.nav-news
+    a
+        display: block
+        position: relative
+    .default
+        position: relative
+        z-index: 20
+
+    path
+        transition: all .3s ease
+        
+    .hover
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        z-index: 1
+
+    &:hover
+        .hover
+            transform: translateX(-20%) translateY(50%)
+
+.nav-knowledge
+    a
+        display: block
+        position: relative
+    .default
+        position: relative
+        z-index: 20
+
+    path
+        transition: all .3s ease
+        
+    .hover
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        z-index: 1
+
+    &:hover
+        .hover
+            transform: translateX(20%) translateY(60%)
+
+.nav-shop
+    a
+        display: block
+        position: relative
+    .default
+        position: relative
+        z-index: 20
+
+    path
+        transition: all .3s ease
+        
+    .hover
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        z-index: 1
+
+    &:hover
+        .hover
+            transform: translateX(20%) translateY(60%)
+
+.main
+    img,svg
+        display: block
+        max-width: 100%
+        height: auto
+        transition: all .3s ease-out
+
+.main-navi-t-r
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+
+.main-navi-b-r
+    display: grid
+    grid-template-columns: 1fr 1fr
+
+
+@keyframes carMove
+    0%
+        transform: scale(1) translateY(0)
+
+    30%
+        transform: scale(.98) translateY(5px)
+    32%
+        transform: scale(.98) translateY(5px)
+
+    40%,100%
+        transform: scale(1) translateY(0)
+
+
+
+@keyframes carMoveText
+    0%
+        transform: scale(1)
+        opacity: 0
+    22%
+        transform: scale(1.03)
+        opacity: 1
+
+    40%
+        transform: scale(1)
+        opacity: 0
+
+
+.main-bottom
+    position: relative
+    padding-top: 30px
+    padding-bottom: 20px
+    background: url(../images/home-bottom.svg) repeat-x left bottom
+    background-size: 100% auto
+
+    .car
+        position: relative
+        width: 286px
+        margin: 0 auto
+
+        .text-ani
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            animation: carMoveText 2s ease infinite alternate
+            transform-origin: center bottom
+            opacity: 0
+
+        .car-ani
+            animation: carMove 2s ease infinite alternate
+            transform-origin: center bottom
+
+    .copyright
+        position: absolute
+        bottom: 0
+        left: 15px
+        right: 15px
+        color: black
+        font-size: 12px
+        font-weight: bold
+        line-height: 1.5
+        font-family: Arial, Helvetica, sans-serif
+        text-align: center
+        z-index: 10
+
+

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="984" height="97" viewBox="0 0 984 97">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.694" y1="0.886" x2="1.566" y2="0.886" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#aae7cf"/>
+      <stop offset="0.113" stop-color="#c7d8d2"/>
+      <stop offset="0.239" stop-color="#edc5d8"/>
+      <stop offset="0.349" stop-color="#efd0d7"/>
+      <stop offset="0.478" stop-color="#f5e4d7"/>
+      <stop offset="0.711" stop-color="#f5e5d9"/>
+      <stop offset="0.832" stop-color="#f7eae1"/>
+      <stop offset="0.927" stop-color="#faf3ee"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <rect id="進度條_漸層矩形" width="984" height="97" transform="translate(984 97) rotate(180)" fill="url(#linear-gradient)"/>
+</svg>

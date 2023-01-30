@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="414.5" viewBox="0 0 1920 414.5">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0030ff"/>
+      <stop offset="0.102" stop-color="#3a5af5"/>
+      <stop offset="0.212" stop-color="#7284ec"/>
+      <stop offset="0.32" stop-color="#a1a6e4"/>
+      <stop offset="0.422" stop-color="#c5c1de"/>
+      <stop offset="0.517" stop-color="#dfd4da"/>
+      <stop offset="0.602" stop-color="#efdfd7"/>
+      <stop offset="0.668" stop-color="#f5e4d7"/>
+      <stop offset="0.803" stop-color="#f8ece4"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <rect id="選車_底圖" width="1920" height="414.5" opacity="0.5" fill="url(#linear-gradient)"/>
+</svg>

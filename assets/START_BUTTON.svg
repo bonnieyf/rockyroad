@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="252.524" height="74.951" viewBox="0 0 252.524 74.951">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.798" y1="0.5" x2="0.252" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#59e7d0"/>
+      <stop offset="1" stop-color="#ffa3d9"/>
+    </linearGradient>
+  </defs>
+  <g id="START_BUTTON" transform="translate(1.5 1.5)">
+    <rect id="矩形_255" data-name="矩形 255" width="249.524" height="71.951" rx="10.816" stroke="#fff" stroke-miterlimit="10" stroke-width="3" fill="url(#linear-gradient)"/>
+    <g id="组_437" data-name="组 437" transform="translate(28.421 18.034)">
+      <line id="直线_51" data-name="直线 51" x2="192.682" transform="translate(0 35.883)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2.607"/>
+      <g id="组_343" data-name="组 343" transform="translate(11.926)">
+        <path id="路径_1702" data-name="路径 1702" d="M715.3-68.73l-3.575,4.163H686.934L683.4-68.612h22.115l1.454-1.689v-6.01H684.46V-87.7l3.731-4.361h28.047l-3.457,4.046H694.437l-1.767,2v5.656H715.3Z" transform="translate(-683.399 92.063)" fill="#fff"/>
+        <path id="路径_1703" data-name="路径 1703" d="M756.944-88.017H746.772v23.45h-8.21v-23.45H728.27l-3.5-4.046h35.667Z" transform="translate(-690.918 92.063)" fill="#fff"/>
+        <path id="路径_1704" data-name="路径 1704" d="M801.466-92.063v27.5h-8.248V-76.272H778.684v11.705h-8.406v-27.5ZM778.8-88.017v7.659h14.22v-7.659Z" transform="translate(-699.188 92.063)" fill="#fff"/>
+        <path id="路径_1705" data-name="路径 1705" d="M846.325-64.567h-9.7l-14.809-16.89h13.906v-6.56H820.557v23.45h-8.328v-27.5h31.582v14.652h-8.72Z" transform="translate(-706.811 92.063)" fill="#fff"/>
+        <path id="路径_1706" data-name="路径 1706" d="M886.064-88.017H875.891v23.45h-8.21v-23.45H857.39l-3.5-4.046H889.56Z" transform="translate(-714.383 92.063)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>
