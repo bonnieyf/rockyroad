@@ -94,7 +94,7 @@
     height: 100%
     text-align: center
     background-image: url(../images/home-news-ticker1.svg)
-    background-size: 60px auto
+    background-size: 110% auto
     background-repeat: repeat
     animation: marqueeUp 50s infinite linear
 
@@ -106,17 +106,17 @@
 
 @keyframes marqueeUp
   0%
-    background-position: 0 0
+    background-position: center 0
 
   100%
-    background-position: 0 -2721px
+    background-position: center -2721px
 
 @keyframes marqueeDown
   0%
-    background-position: 0 0
+    background-position: center 0
 
   100%
-    background-position: 0 2721px
+    background-position: center 2721px
 
 .nav-news
     a
@@ -266,3 +266,20 @@
         z-index: 10
 
 
+
+
+.btn-next a
+    display: inline-block
+    
+
+    svg
+        display: block
+        transition: all .5s ease
+        margin: 0
+
+    &:hover 
+        svg
+            transform: scale(1.03)
+        #arrow-next path
+            fill: #383738
+        
