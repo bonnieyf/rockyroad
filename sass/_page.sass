@@ -156,7 +156,6 @@ $r2: 0.85
 
 .container
     position: relative
-    max-width: 1700px
     padding-left: 15px
     padding-right: 15px
     margin: 0 auto
@@ -165,10 +164,10 @@ $r2: 0.85
         max-width: 900px
 
     +desktop_md
-        max-width: 1300px
+        max-width: 1000px
 
     +desktop_xl
-        max-width: 1600px
+        max-width: 1300px
 
 #page
     padding-top: 100px * $r
@@ -287,7 +286,7 @@ $r2: 0.85
 
     .dialog
         top: 140px
-        left: -350px
+        left: -400px
         z-index: 200
         opacity: 0
         transform: translateX(100px)
@@ -312,7 +311,7 @@ $r2: 0.85
 
     .dialog
         bottom: 30%
-        right: -360px
+        right: -400px
         z-index: 200
         opacity: 0
         transform: translateX(-100px)
@@ -335,7 +334,7 @@ $r2: 0.85
 
     .dialog
         top: 0
-        left: -380px
+        left: -400px
         z-index: 200
         opacity: 0
         transform: translateX(100px)
@@ -384,7 +383,7 @@ $r2: 0.85
     text-align: center
     background-image: url(../images/card-top.svg)
     background-position: 0 center
-    background-size: 100% auto
+    background-size: auto 100%
     background-repeat: repeat
     animation: knowledgeMarquee2Up 50s infinite linear
 
@@ -409,7 +408,7 @@ $r2: 0.85
         position: absolute
         top: 120px * $r
         left: 110px * $r
-        width: 120px * $r
+        width: 120px * 0.9
         height: auto
 
     .main
@@ -435,7 +434,7 @@ $r2: 0.85
     .card-box
         border: $borderStyle
         box-sizing: border-box
-        min-height: 1100px * $r
+        min-height: 1000px * $r
         user-select: none
         cursor: grab
 
@@ -451,8 +450,9 @@ $r2: 0.85
             font-weight: normal
 
         p
-            font-size: 20px
+            font-size: 18px
             line-height: 1.5
+            margin: 10px 0
         
 
 .card1
@@ -507,7 +507,7 @@ $r2: 0.85
         margin-bottom: 50px * $r
 
         img
-            width: 352px * $r
+            width: 352px * 0.9
 
     .btn-next
         text-align: right
@@ -542,7 +542,9 @@ $r2: 0.85
         transform: scale(1)
 
 .sambo-main
-    max-width: 1700px
+    margin-top: -100px
+    margin-left: -100px
+    margin-right: -100px
 
     img
         max-width: 100%
