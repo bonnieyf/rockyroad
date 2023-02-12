@@ -15,9 +15,11 @@ $(function(){
         e.preventDefault();
         let showItem = $(this).attr('href');
         $('.sambo-nav a.active').removeClass('active');
-        $(this).addClass('active');
+        $('.sambo-slide.ani').removeClass('ani');
         $('.sambo-slide').css({display:'none',opacity: 0});
-        $(showItem).css({display:'block',opacity: 1});
+        $(this).addClass('active');
+        console.log(showItem)
+        $(showItem).addClass('ani').css({display:'block',opacity: 1});
 
     });
     
