@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1010"
+    height="690" viewBox="0 0 1010 690">
+    <defs>
+        <clipPath id="s2a">
+            <rect width="1010" height="690" transform="translate(806 384)" fill="none"
+                opacity="0.343" />
+        </clipPath>
+        <linearGradient id="s2b" x1="0.5" y1="0.566" x2="0.5" y2="1.587"
+            gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#13e5ca" />
+            <stop offset="1" stop-color="#ff72d9" />
+        </linearGradient>
+        <linearGradient id="s2c" x1="0.5" y1="-0.315" x2="0.5" y2="0.426" xlink:href="#s2b" />
+        <clipPath id="s2d">
+            <path
+                d="M1094.13,755.184H824.051c-27.715,0-50.183-10.155-50.183-33.948h0c0-8.6,8.119-15.567,18.133-15.567h334.178c10.015,0,18.133,6.97,18.133,15.567h0C1144.312,745.029,1121.845,755.184,1094.13,755.184Z"
+                fill="none" stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+        </clipPath>
+        <linearGradient id="s1e" x1="0" y1="0.5" x2="1" y2="0.5" xlink:href="#s2b" />
+    </defs>
+    <g transform="translate(-806 -384)" clip-path="url(#s2a)">
+        <g transform="translate(823.521 427)">
+            <g transform="translate(-454.678 -429)">
+                <path
+                    d="M1205.633,582.41c-18.111-4.679-43.687-12.715-46.369-17.008-3.458-5.531-44.251-76.055-42.177-85.044,1.029-4.456,13.246-3.315,25.307-1.033a130.225,130.225,0,0,0-69.419-31.94c-74.607-10.5-144.815-10.318-220.6,0a159.726,159.726,0,0,0-76.573,32.6c13.043-2.684,27.532-4.5,28.655.37,2.075,8.989-38.719,79.513-42.176,85.044-2.943,4.71-33.445,13.927-51.408,18.27L695.251,616.72a1885.014,1885.014,0,0,1,527.679,0ZM804.531,556.1l24.629-47.046c12.734-24.325,40.641-39.22,67.414-42.511,44.4-5.457,85.525-5.555,129.231,0,26.049,3.311,47.551,17.4,60.574,40.72L1113.65,556.1A1222.005,1222.005,0,0,0,804.531,556.1Z"
+                    fill="#8f94b7" />
+                <path
+                    d="M27.1,0h94.7a27.1,27.1,0,0,1,27.1,27.1V155.543A19.958,19.958,0,0,1,128.943,175.5H19.958A19.958,19.958,0,0,1,0,155.543V27.1A27.1,27.1,0,0,1,27.1,0Z"
+                    transform="translate(987.029 535.744)" fill="#7c738e" />
+                <path
+                    d="M13.764,0H88.77a13.764,13.764,0,0,1,13.764,13.764V50.227a7.107,7.107,0,0,1-7.107,7.107H7.107A7.107,7.107,0,0,1,0,50.227V13.764A13.764,13.764,0,0,1,13.764,0Z"
+                    transform="translate(1010.212 497.078)" fill="#7c738e" />
+                <path
+                    d="M27.1,0h94.7a27.1,27.1,0,0,1,27.1,27.1V155.543A19.958,19.958,0,0,1,128.943,175.5H19.958A19.958,19.958,0,0,1,0,155.543V27.1A27.1,27.1,0,0,1,27.1,0Z"
+                    transform="translate(783.294 535.744)" fill="#7c738e" />
+                <path
+                    d="M13.764,0H88.77a13.764,13.764,0,0,1,13.764,13.764V50.227a7.107,7.107,0,0,1-7.107,7.107H7.107A7.107,7.107,0,0,1,0,50.227V13.764A13.764,13.764,0,0,1,13.764,0Z"
+                    transform="translate(806.477 497.078)" fill="#7c738e" />
+                <circle cx="34.23" cy="34.23" r="34.23" transform="translate(1028.687 560.052)"
+                    fill="none" stroke="#544949" stroke-miterlimit="10" stroke-width="2.242" />
+                <path
+                    d="M1176.378,513.8c-22.231-44.1-58.936-70.733-103.4-76.994-74.607-10.5-144.815-10.318-220.6,0-45.7,6.223-93.341,34.387-115.078,80.379L695.25,606.143h527.68Zm-466.06,90.359,39.621-80.087c20.485-41.407,65.38-66.764,108.451-72.366,71.423-9.29,137.587-9.456,207.9,0,41.906,5.636,76.5,29.616,97.447,69.318l43.871,83.135A1858.671,1858.671,0,0,0,710.318,604.161Z"
+                    fill="url(#s2b)" />
+                <path
+                    d="M1206.524,605.544a1842.858,1842.858,0,0,0-497.289,0s30.835-10.417,42.741-13.038c42.586-9.377,62.26-11.432,105.331-17.083,71.424-9.37,137.316-7.251,207.9,0,53.268,5.473,78.164,10.038,104.887,20.309C1182.7,600.575,1206.524,605.544,1206.524,605.544Z"
+                    fill="#544949" />
+                <rect width="82.237" height="24.891" rx="4.53"
+                    transform="translate(917.972 466.829)" fill="#7c738e" />
+                <path
+                    d="M0,0H10.037a0,0,0,0,1,0,0V30.18A1.827,1.827,0,0,1,8.21,32.007H1.827A1.827,1.827,0,0,1,0,30.18V0A0,0,0,0,1,0,0Z"
+                    transform="translate(954.072 444.678)" fill="#544949" />
+                <path
+                    d="M10.267,0h75.2A10.267,10.267,0,0,1,95.734,10.267v144.6A17.425,17.425,0,0,1,78.309,172.29H17.425A17.425,17.425,0,0,1,0,154.865V10.267A10.267,10.267,0,0,1,10.267,0Z"
+                    transform="translate(1187.639 712.71)" fill="#191b1a" />
+                <path
+                    d="M10.267,0h75.2A10.267,10.267,0,0,1,95.734,10.267v144.6A17.425,17.425,0,0,1,78.309,172.29H17.425A17.425,17.425,0,0,1,0,154.865V10.267A10.267,10.267,0,0,1,10.267,0Z"
+                    transform="translate(634.807 712.71)" fill="#191b1a" />
+                <path
+                    d="M1260.056,650.786l-37.126-44.642H695.25l-37.126,44.643S636.582,665.61,641.2,726.653l8.9,73.229a21.94,21.94,0,0,0,17.174,18.783q291.817,62.978,583.634,0a21.942,21.942,0,0,0,17.175-18.783l8.9-73.229C1281.6,665.61,1260.056,650.786,1260.056,650.786Z"
+                    fill="url(#s2c)" />
+                <path
+                    d="M757.6,708.19c0,20.485-9.855,39.685-27.6,39.685s-49.767-17.67-57.89-35.883c-9.359-20.981-15.477-43.484,2.269-43.487C712.293,668.5,757.6,687.705,757.6,708.19Z"
+                    fill="#f9f269" />
+                <path
+                    d="M1160.32,708.19c0,20.485,9.855,39.685,27.6,39.685s49.766-17.67,57.89-35.883c9.359-20.981,15.477-43.484-2.27-43.487C1205.631,668.5,1160.32,687.705,1160.32,708.19Z"
+                    fill="#f9f269" />
+                <path
+                    d="M640.55,765.869l.624,54.174c1.161,6.876,8.266,12.45,17.671,13.911a1944.446,1944.446,0,0,0,600.49,0c9.406-1.461,16.51-7.035,17.671-13.911l.624-49.819C1277.63,815.853,640.55,811.5,640.55,765.869Z"
+                    fill="#9fa4ca" />
+                <rect width="105.298" height="45.128" rx="3.719"
+                    transform="translate(906.441 777.979)" fill="#fff" />
+                <g clip-path="url(#s2d)">
+                    <line y2="63.2" transform="translate(788.733 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(805.117 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(821.501 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(837.886 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(854.27 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(870.654 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(887.039 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(903.423 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(919.807 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(936.191 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(952.576 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(968.96 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(985.344 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1001.728 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1018.113 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1034.497 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1050.881 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1067.266 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1083.65 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1100.034 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1116.418 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                    <line y2="63.2" transform="translate(1132.803 696.548)" fill="none"
+                        stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                </g>
+                <path
+                    d="M1094.13,755.184H824.051c-27.715,0-50.183-10.155-50.183-33.948h0c0-8.6,8.119-15.567,18.133-15.567h334.178c10.015,0,18.133,6.97,18.133,15.567h0C1144.312,745.029,1121.845,755.184,1094.13,755.184Z"
+                    fill="none" stroke="#fcfcfc" stroke-miterlimit="10" stroke-width="1.682" />
+                <rect width="35.383" height="35.383" rx="6.44"
+                    transform="translate(943.186 712.735)" fill="#fff" />
+                <path
+                    d="M710.318,620.652c17.167,20.429,38.292,40.221,64.447,47.853a69.809,69.809,0,0,1-9.918-2.608c-22.4-8.278-41.109-25.829-54.529-45.245Z"
+                    fill="#fcfcfc" />
+                <path
+                    d="M1208.759,618.046c-13.419,19.415-32.13,36.967-54.529,45.245a69.828,69.828,0,0,1-9.918,2.609c26.154-7.632,47.279-27.424,64.447-47.854Z"
+                    fill="#fcfcfc" />
+                <path
+                    d="M1222.93,586.489c0,9.907,9.2,18.466,19.1,18.466s32.173-2.6,38.6-12.963c5.219-8.421,3.016-28.211-6.892-28.212C1252.575,563.777,1222.93,576.581,1222.93,586.489Z"
+                    fill="url(#s2e)" />
+                <path
+                    d="M693.253,586.489c0,9.907-9.2,18.466-19.1,18.466s-32.173-2.6-38.6-12.963c-5.22-8.421-3.017-28.211,6.891-28.212C663.608,563.777,693.253,576.581,693.253,586.489Z"
+                    fill="url(#s2e)" />
+                <rect width="12.499" height="36.724" rx="2.275"
+                    transform="translate(667.956 592.529) rotate(-66.018)" fill="#706262" />
+                <rect width="12.499" height="36.724" rx="2.275"
+                    transform="translate(1211.84 607.455) rotate(-113.982)" fill="#706262" />
+            </g>
+            <path d="M673.663,700l83,3.441L818.322,1082H454.678Z"
+                transform="translate(-454.678 -429)" fill="#f9f269" opacity="0.5" />
+            <path d="M1246.337,700l-83,3.441L1101.678,1082h363.643Z"
+                transform="translate(-454.678 -429)" fill="#f9f269" opacity="0.5" />
+        </g>
+    </g>
+</svg>

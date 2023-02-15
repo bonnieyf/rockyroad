@@ -1,0 +1,478 @@
+$r0: 0.9
+$r: 0.7
+$r2: 0.85
+
+#init
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-60%)
+
+    .content
+        background: none
+
+        p
+            display: block
+            color: white
+            overflow: hidden
+            white-space: nowrap
+            width: 0
+
+            &:nth-child(1)
+                animation: typing 3.5s steps(12, end) forwards
+            &:nth-child(2)
+                animation: typing 3.5s 3.5s steps(21, end) forwards
+            &:nth-child(3)
+                animation: typing 3.5s 7s steps(14, end) forwards
+
+@keyframes typing
+  from
+    width: 0
+  to
+    width: 100%
+
+#init-popup,#init-music-popup
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-55%)
+    margin-top: -100px
+    visibility: hidden
+    opacity: 0
+    transition: opacity,margin .8s ease
+
+    &.active
+        visibility: initial
+        opacity: 1
+        margin-top: 0
+
+
+
+#init-select-car
+    min-height: 100vh
+    background: linear-gradient(0deg, rgba(#0030FF,.5) 0%,rgba(#C5C1DE,.5) 10%,rgba(#F5E4D7,.5) 30%,#FFFFFF 40%) 0% 0% no-repeat
+    box-sizing: border-box
+
+    // font-family: ロックンロール One
+
+
+#timer
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    display: none
+
+    .timer2,.timer3
+        position: absolute
+        top: 0
+        left: 0
+
+.select-msg
+    max-width: 1320px * $r
+    margin: 50px auto 40px
+
+    .bg
+        width: 100%
+        background: linear-gradient(90deg, #13E5CA 0%,#FF72D9 100%) 0% 0% no-repeat
+        padding: 5px
+        box-sizing: border-box
+    .content
+        background-color: #fff
+        overflow: hidden
+        padding: 0 20px
+
+        p
+            display: inline-block
+            font-size: 30px
+            line-height: 1.5
+
+            b
+                font-weight: normal
+                color: #FF00FF
+
+    .word-flex
+        display: flex
+        width: 100%
+        align-items: center
+        text-align: center
+
+        .item
+            flex: auto
+            &:nth-child(2)
+                color: #FF72D9
+        .btn-start
+            flex: 180px
+            max-width: 180px
+            padding-left: 20px
+            opacity: 0
+            transition: all .3s ease
+            visibility: hidden
+
+            &.show
+                opacity: 1
+                visibility: initial
+            img
+                max-width: 100%
+
+
+.car-options
+    display: flex
+    align-items: baseline
+    a
+        display: block
+        color: #2C2A2A
+        text-decoration: none
+        text-align: center
+        
+    .select-item
+        flex: 50%
+        position: relative
+        color: #2C2A2A
+        font-size: 30px
+        overflow: hidden
+
+        img,svg
+            max-width: 100%
+            margin-top: -100px
+
+            .light
+                opacity: 0
+                transition: all .5s ease
+
+        &:nth-child(1) img
+            margin-right: -50px
+        &:nth-child(2) img
+            margin-left: -50px
+
+
+        a:hover
+            svg .light
+                opacity: 1
+        a.active
+            svg .light
+                opacity: 1
+            p
+                opacity: 1
+
+    p
+        margin-top: -200px
+        opacity: 0
+        user-select: none
+        transition: all .5s ease
+
+.popup-box
+    max-width: 1000px
+    width: 100%
+    margin: 0 auto 30px
+    position: relative
+    z-index: 2000
+
+    .bg
+        position: relative
+        width: 100%
+        border-left: 6px solid #13E5CA
+        border-right: 6px solid #FF72D9
+
+        &:before
+            content: ""
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 6px
+            background: linear-gradient(90deg, #13E5CA 0%,#FF72D9 100%)
+
+        &:after
+            content: ""
+            display: block
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 100%
+            height: 6px
+            background: linear-gradient(90deg, #13E5CA 0%,#FF72D9 100%)
+
+    .content
+        background-color: #fff
+        overflow: hidden
+        padding: 20px
+        padding-bottom: 30px
+
+        p
+            font-size: 30px
+            line-height: 1.5
+
+            b
+                font-weight: normal
+                color: #FF00FF
+
+
+    .right-btn
+        text-align: right
+
+        img
+            display: inline-block
+            
+    .center
+        max-width: 82%
+        margin: 0 auto
+    .more-text
+        width: 262px * $r
+        vertical-align: bottom
+        margin-right: 10px
+    .btn-gogo
+        display: inline-block
+        width: 252px * $r
+
+        a
+            display: inline-block
+
+        img
+            max-width: 100%
+            vertical-align: bottom
+
+
+
+//選擇音樂
+#init-music-popup
+
+    .content
+        background: none
+    p
+        margin: 0
+        margin-bottom: 30px
+        margin-top: 50px
+        color: #fff
+        font-size: 42px * $r
+        line-height: 1.5
+        text-align: center
+
+        &.notice-msg
+            color: #46ECDC
+            font-size: 20px
+            line-height: 1.5
+            margin: 0
+            margin-top: 20px
+
+        b
+            color: #FFA3D9
+
+
+.choose-music
+    display: flex
+    align-items: center
+    .left,.right
+        position: relative
+        flex: 50%
+        padding: 0 30px
+        box-sizing: border-box
+
+
+    .music-sample
+        position: relative
+        max-width: 300px
+        div
+            position: absolute
+            top: 0
+            left: 0
+            opacity: 0
+            transition: all .4s ease
+
+            &:nth-child(1)
+                position: relative
+
+            &.active
+                opacity: 1
+
+        img
+            max-width: 100%
+
+
+.btn-playgame
+    width: 249px *$r
+    margin: 0 auto
+
+    img
+        max-width: 100%
+
+.music-menu
+    color: white
+    font-size: 28px
+    line-height: 1.5
+    margin: 0
+    padding-left: 0
+    text-align: center
+    margin-bottom: 60px
+    margin-top: 80px
+
+    ol
+        margin: 0
+        padding: 0
+
+    li
+        list-style: none
+
+        &.active 
+            .ico
+                opacity: 1
+            
+            a
+                color: #46ECDC
+
+
+        &:hover a
+            color: #46ECDC
+
+        .ico
+            width: 20px
+            margin-right: 20px
+            opacity: 0
+            transition: all .4s ease
+            margin-left: -50px
+    
+
+    a
+        color: white
+        text-decoration: none
+        transition: all .4s ease
+
+
+// font-family: 'Dela Gothic One', cursive
+
+.overlay
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    bottom: 0
+    background-color: rgba(#000000,.8)
+    z-index: 200
+
+.topic-box
+    padding: 20px
+    border: 4px solid #000B72
+    max-width: 1000px
+    width: 100%
+    margin: 0 auto
+    border-radius: 50px
+    position: relative
+    z-index: 2000
+    background-color: rgba(white,.85)
+    user-select: none
+
+    p.title
+        color: black
+        font-size: 30px
+        line-height: 1.5
+        text-align: center
+        margin: 20px 0 40px
+
+    // .center
+    //     padding-left: 20px
+    //     padding-right: 20px
+
+    .topic-option
+        display: flex
+        width: 100%
+        align-items: stretch
+        margin-bottom: 10px
+
+    .option
+        flex: 1
+        display: flex
+        align-items: stretch
+        border: 3px solid black
+        border-radius: 18px
+        margin: 0 15px
+        min-height: 50px
+        color: black
+        text-decoration: none
+
+        &:hover
+            background-color: #FFF645
+
+        .number
+            display: flex
+            align-items: center
+            justify-content: center
+            flex: 50px
+            max-width: 50px
+            min-width: 50px
+            color: black
+            font-size: 30px
+            text-align: center
+            text-decoration: none
+            border-right: 3px solid black
+            font-family: 'Dela Gothic One', cursive
+            
+
+        .desc
+            text-decoration: none
+            color: black
+            padding: 10px 15px
+            font-size: 18px
+            line-height: 1.2
+            display: flex
+            align-items: center
+
+
+
+#init-game-bg
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: url(../images/game-bg.png) no-repeat center
+    background-size: cover
+    z-index: 100
+
+
+.topic-box
+    position: fixed
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 2000
+    top: -100px
+    transition: all .5s ease
+    opacity: 0
+    visibility: hidden
+
+    &.active
+        top: 50px
+        opacity: 1
+        visibility: initial
+
+#game-animation
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow: hidden
+    user-select: none
+    pointer-events: none
+
+    video
+        pointer-events: none
+        opacity: 0
+        min-width: 100%
+        min-height: 100%
+        width: auto
+        height: auto
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+
+        &.active
+            opacity: 1
+        
+        &::-webkit-media-controls
+            display: none !important
+
+
+.vsc-controller
+    display: none !important
