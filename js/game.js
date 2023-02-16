@@ -130,13 +130,13 @@ $(function(){
         }
         $('.music-sample div').eq(index).addClass('active');
         $('.background-music').empty();
-        let audioHtml =  '<audio autoplay loop><source src="../music/'+ currentMusic +'.mp3" type="audio/mp3" controls></audio>'
+        let audioHtml =  '<audio autoplay loop><source src="./../music/'+ currentMusic +'.mp3" type="audio/mp3" controls></audio>'
         $('.background-music').append(audioHtml);
     });
 
     aniList.forEach(function(value){
         let content =  $('#game-animation .topic');
-        let mp4Html = '<video id="ani-'+ value.file +'" controls="false" paused><source src="../mp4/'+ value.file +'.mp4" type="video/mp4"></video>'
+        let mp4Html = '<video id="ani-'+ value.file +'" controls="false" paused><source src="./../mp4/'+ value.file +'.mp4" type="video/mp4"></video>'
         content.append(mp4Html);
     });
 
