@@ -197,8 +197,9 @@ function handleLevel(){
         topicLevel++;
 
         let video = $('#ani-'+aniList[level].file);
-
+        $('#game-animation .topic video').removeClass('active');
         video.addClass('active');
+        
         document.getElementById('ani-'+aniList[level].file).play();
         video.on("playing", function() {
             addTopic(topicLevel);
@@ -219,7 +220,6 @@ function handleLevel(){
         video.addClass('active');
         document.getElementById('ani-'+aniList[level].file).play();
         video.on("ended", function() {
-            console.log('play end!!')
             handleLevel();
         });
     }
