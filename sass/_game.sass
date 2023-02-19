@@ -368,6 +368,8 @@ $r2: 0.85
     p.title
         color: black
         font-size: 30px
+        font-family: 'RocknRoll One','Noto Sans TC',"微軟正黑體", sans-serif
+        font-weight: 600
         line-height: 1.5
         text-align: center
         margin: 20px 0 40px
@@ -464,14 +466,14 @@ $r2: 0.85
     video
         pointer-events: none
         opacity: 0
-        min-width: 100%
-        min-height: 100%
-        width: auto
+        width: 100%
         height: auto
         position: absolute
         top: 50%
         left: 50%
         transform: translate(-50%,-50%)
+        object-fit: cover
+        object-position: center
 
         &.active
             opacity: 1
