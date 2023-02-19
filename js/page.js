@@ -22,5 +22,6 @@ $(function(){
         $(showItem).addClass('ani').css({display:'block',opacity: 1});
 
     });
+
     
 });

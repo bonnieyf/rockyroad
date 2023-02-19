@@ -7,6 +7,7 @@
     <title>RockyRoad</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="js.lilb/swipe/swiper-bundle.min.css">
     <link
@@ -382,7 +383,7 @@
     <div id="page" class="news-bg">
         <section id="news">
             <div class="container">
-                <div class="title"><img src="images/news-title.svg" alt=""></div>
+                <div class="title"><a href="news.html"><img src="images/news-title.svg" alt=""></a></div>
                 <div class="content full">
                     <div class="news-item">
                         <div class="news-img"><img src="images/news4-img.png" alt=""></div>
@@ -397,9 +398,10 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="news-licence"><a data-fancybox data-src="images/news4-licence_xl.svg" ><img src="images/news4-licence.svg" alt=""></a></div>
                         <div class="news-chat"><img src="images/news4-chat.svg" alt=""></div>
                     </div>
-                    <div class="btn-next for-news-detail"><a href="#">
+                    <div class="btn-next for-news-detail"><a href="news-1.html">
                       <svg xmlns="http://www.w3.org/2000/svg" width="277.646" height="78.44" viewBox="0 0 277.646 78.44">
                         <g id="NEXT_BUTTON" transform="translate(1 1)">
                           <rect id="長方形_218" data-name="長方形 218" width="275.646" height="76.44" fill="#fff" stroke="#3f3f3f" stroke-miterlimit="10" stroke-width="2"/>
@@ -439,6 +441,7 @@
     <script src="./js.lilb/jquery.min.js"></script>
     <script src="./js.lilb/gsap.min.js"></script>
     <script src="./js.lib/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js.lilb/imagesloaded.pkgd.min.js"></script>
     <script src="./js/loaded.js"></script>

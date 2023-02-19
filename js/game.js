@@ -130,8 +130,10 @@ $(function(){
         }
         $('.music-sample div').eq(index).addClass('active');
         $('.background-music').empty();
-        let audioHtml =  '<audio autoplay loop><source src="./rockyroad/../music/'+ currentMusic +'.mp3" type="audio/mp3" controls></audio>'
+        let audioHtml =  '<audio id="bg-audio" autoplay loop><source src="./rockyroad/../music/'+ currentMusic +'.mp3" type="audio/mp3" controls></audio>'
+        
         $('.background-music').append(audioHtml);
+        document.getElementById("bg-audio").volume = 0.5;
     });
 
     aniList.forEach(function(value){

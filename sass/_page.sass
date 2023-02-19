@@ -11,7 +11,7 @@ $r2: 0.85
     background: white
     border-bottom: $borderStyle
     overflow: hidden
-    z-index: 3000
+    z-index: 1000
     text-align: center
     padding-left: 30px
     box-sizing: border-box
@@ -37,6 +37,9 @@ $r2: 0.85
     &.game
         border: none
         position: relative
+
+        &.no-bg
+            background: none
 
         .btns a
             border: none
@@ -715,8 +718,9 @@ body.game
     background-color: #fff
     padding: 55px
     display: grid
-    grid-template-columns: repeat(5, 1fr)
-    grid-template-rows: repeat(2, 1fr)
+    grid-template-columns: 1.4fr 1.2fr 1fr
+    grid-template-rows: 1fr 1fr
+    grid-template-areas: "left top top" "left licence chat"
     grid-column-gap: 30px
     grid-row-gap: 30px
 
@@ -724,12 +728,17 @@ body.game
         width: 100%
 
     .news-img
-        grid-area: 1 / 1 / 3 / 3
+        grid-area: left
     .news-detail
-        grid-area: 1 / 3 / 2 / 6
-    .news-chat
-        grid-area: 2 / 3 / 3 / 6
+        grid-area: top
+    .news-licence
+        grid-area: licence
+        cursor: zoom-in
 
+        svg
+            max-width: 100%
+    .news-chat
+        grid-area: chat
     .news-detail
         border: 1px solid black
         padding: 20px
