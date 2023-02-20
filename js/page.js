@@ -2,7 +2,7 @@ $(function(){
 
     $(".btn-navigation").click(function(e){
         e.preventDefault();
-        let menu = $("#navigation-box");
+        let menu = $("#navigation-box,#navigation-box-game");
         menu.toggleClass('show');
         if(menu.hasClass('show')){
             gsap.to(menu, { duration: .8 ,display:'block',x: 0,opacity: 1, ease: "power2.out"});
