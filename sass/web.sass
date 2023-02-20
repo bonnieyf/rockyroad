@@ -73,32 +73,33 @@ body,html
     left: 0
     right: 0
     bottom: 0
-    background-color: #000
-    display: flex
-    align-items: center
-    justify-content: center
-    z-index: 5000
-    // display: none
+    background-color: rgba(#000,.8)
+    z-index: 8000
+    display: none
 
     #countdown
+        position: absolute
+        top: 50%
+        left: 50%
         width: 0
-        transition: all .5s ease
+        height: 300px
+        transition: all 1s ease
+        transform: translateX(-50%) translateY(-50%)
+        transform-origin: center
+
+        img
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translateX(-50%) translateY(-50%)
+            transform-origin: center
 
     .center
         position: relative
         width: 200px
 
 
-        // div
-        //     position: absolute
-        //     top: 0
-        //     left: 0
-        //     opacity: 0
-
-        //     &:nth-child(3)
-        //         position: relative
-        //         opacity: 1
-
+       
     img
         max-width: 100%
 

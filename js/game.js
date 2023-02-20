@@ -1,3 +1,4 @@
+let counter = 3;
 let totalScore = 0;
 let level = 0;
 let topicLevel = 0;
@@ -141,35 +142,37 @@ $(function(){
         let mp4Html = '<video id="ani-'+ value.file +'" controls="false" paused><source src="./rockyroad/../mp4/'+ value.file +'.mp4" type="video/mp4"></video>'
         content.append(mp4Html);
     });
-    
-
-    // let counter = 3;
-
-    // let timer = setInterval( function() { 
-    
-    //     $('#countdown').remove();     
-        
-    //     var countdown = $((counter==0? '123':'<img src="images/init-number-'+ counter +'.svg" alt="">')); 
-    //     countdown.appendTo($('#init-timer .center'));
-    //     setTimeout( () => {
-    //         if (counter >-1) {
-    //             $('#countdown').css({ 'width': '200px', 'opacity': 0 }); 
-    //         } else {
-    //             $('#countdown').css({ 'width': '100px', 'opacity': 50 });
-    //         }
-    //     },20);
-    //     counter--;
-    //     if (counter == -1) clearInterval(timer);
-    // }, 1000);
 
     //選擇音樂後進入遊戲
     $(".btn-playgame").click(function(e){
         e.preventDefault();
         $('#init-popup,.overlay ,#init-game-bg ,#init-music-popup').hide();
         $('#game-animation .topic').addClass('active');
+        $('#init-timer').fadeIn();
         let video = $('#ani-'+aniList[0].file);
         video.addClass('active');
-        document.getElementById('ani-'+aniList[0].file).play();
+        
+
+        let timer = setInterval( function() { 
+            $('#countdown').remove();
+            let countdown = $('<div id="countdown">'+(counter==0? '123':'<img src="images/init-number-'+ counter +'.svg" alt=""></div>')); 
+            countdown.appendTo($('#init-timer'));
+            setTimeout( () => {
+                if (counter >-1) {
+                    $('#countdown').css({ 'width': '260px', 'opacity': 1 });
+                } else {
+                    $('#countdown').css({ 'width': '100px', 'opacity': 1 });
+                }
+            },20);
+            counter--;
+            if (counter == -1){
+                clearInterval(timer);
+                $('#init-timer').fadeOut();
+                document.getElementById('ani-'+aniList[0].file).play();
+            }
+        }, 800);
+
+        
         video.on("playing", function() {
             addTopic(topicLevel);
             addOptionsFile(topicLevel);
@@ -312,5 +315,5 @@ function InitGameAnimation(){
     setTimeout(function(){
         $("#init").hide();
         $('#init-popup').addClass('active');
-    },12000);
+    },10000);
 }
