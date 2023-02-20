@@ -141,6 +141,26 @@ $(function(){
         let mp4Html = '<video id="ani-'+ value.file +'" controls="false" paused><source src="./rockyroad/../mp4/'+ value.file +'.mp4" type="video/mp4"></video>'
         content.append(mp4Html);
     });
+    
+
+    // let counter = 3;
+
+    // let timer = setInterval( function() { 
+    
+    //     $('#countdown').remove();     
+        
+    //     var countdown = $((counter==0? '123':'<img src="images/init-number-'+ counter +'.svg" alt="">')); 
+    //     countdown.appendTo($('#init-timer .center'));
+    //     setTimeout( () => {
+    //         if (counter >-1) {
+    //             $('#countdown').css({ 'width': '200px', 'opacity': 0 }); 
+    //         } else {
+    //             $('#countdown').css({ 'width': '100px', 'opacity': 50 });
+    //         }
+    //     },20);
+    //     counter--;
+    //     if (counter == -1) clearInterval(timer);
+    // }, 1000);
 
     //選擇音樂後進入遊戲
     $(".btn-playgame").click(function(e){
