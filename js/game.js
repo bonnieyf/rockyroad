@@ -191,7 +191,10 @@ function handleLevel(){
     level++;
 
     if(level === 5){
-        alert('路怒分數'+totalScore+'!\n已結束遊戲！');
+        // alert('路怒分數'+totalScore+'!\n已結束遊戲！');
+
+        $('#game-result').fadeIn();
+        $('#game-animation').hide();
         return false;
     }
 

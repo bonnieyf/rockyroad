@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="699.409" height="96" viewBox="0 0 699.409 96">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-16.085" y1="8.839" x2="-16.085" y2="9.75" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffabff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g id="组_664" data-name="组 664" transform="translate(-169.14 -39.039)">
+    <text id="結果出爐_搭拉_" data-name="結果出爐～搭拉～" transform="translate(169.14 117.039)" fill="#6c6d6d" font-size="72" font-family="YuGothicUI-Regular, Yu Gothic UI" letter-spacing="0.063em"><tspan x="0" y="0">結果出爐～搭拉～</tspan></text>
+    <g id="搭啦_愛心" data-name="搭啦～愛心" transform="translate(14.829 2.136)">
+      <path id="路径_2939" data-name="路径 2939" d="M853.72,111.217c-11.026,2.079-22.952,1.01-33.858-1.28-9.083-1.908-17.961-5.526-24.755-11.726-4.7-4.285-8.4-10.087-8.512-16.47s4.258-13.125,10.617-14.269c5.129-.923,10.144,1.772,14.17,4.953a23.106,23.106,0,0,1-.56-10.328,13.1,13.1,0,0,1,5.643-8.57c5.228-3.212,12.2-1.272,16.936,2.451a26.592,26.592,0,0,1,9.728,23.9c-.613,4.779-1.831,10.907-.7,15.56C844.082,102.265,846.66,101.743,853.72,111.217Zm-41.876-42.5,1.722-1.208Z" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>
