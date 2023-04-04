@@ -75,7 +75,7 @@ body.game
     width: 485px * $r
     height: auto
     background-color: #fff
-    z-index: 100
+    z-index: 900
     padding: 3px
     box-sizing: border-box
     border-radius: 10px
@@ -206,13 +206,96 @@ body.game
 #page
     padding-top: 100px * $r
 
+.switch-img
+    .desktop
+        display: block
+    .mobile
+        display: none
+
+    +maxDesktop
+        .desktop
+            display: none
+        .mobile
+            display: block
+
 #knowledge
     position: relative
     width: 100%
-    height: 100vh
+    height: auto
+    padding-bottom: 60px
     background: linear-gradient(-90deg, #6BE6D0 0%,#F9C5E0 100%) 0% 0% no-repeat
+    overflow: hidden
 
-    img
+    +maxDesktop
+        padding-top: 70px
+
+        &.active1 
+            .title
+                top: 0
+                transform: translateX(0%)
+
+            .bottom-text
+                opacity: 0
+            
+            .knowledge2,.knowledge3,.knowledge4
+                opacity: 0
+                visibility: hidden
+            .dialog
+                opacity: 1
+                transform: translateX(0)
+
+        &.active2 
+            .title
+                top: 0
+                transform: translateX(-30%)
+
+            .bottom-text
+                opacity: 0
+
+            .knowledge1,.knowledge3,.knowledge4
+                opacity: 0
+                visibility: hidden
+            .dialog
+                opacity: 1
+                transform: translateX(0)
+
+        &.active3 
+            .title
+                top: auto
+                bottom: 0
+                transform: translateX(-20%)
+
+            .bottom-text
+                opacity: 0
+
+            .knowledge1,.knowledge2,.knowledge4
+                opacity: 0
+                visibility: hidden
+            .dialog
+                opacity: 1
+                transform: translateX(0)
+
+        &.active4 
+            .title
+                top: auto
+                bottom: 0
+                transform: translateX(-20%)
+
+            .bottom-text
+                opacity: 0
+
+            .knowledge1,.knowledge2,.knowledge3
+                opacity: 0
+                visibility: hidden
+
+            .dialog
+                opacity: 1
+                transform: translateX(0)
+
+    .peo
+        width: 100%
+
+    .dialog-arrow
         max-width: 100%
 
     .title
@@ -225,28 +308,75 @@ body.game
             width: 300px * $r0
             margin-left: -64px * $r0
 
+        +maxDesktop
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translateX(-20%) translateY(-100%)
+            width: 145px * 1.3
+            padding-top: 0
+
+            img
+                width: 100%
+
+        +iphone
+            width: 145px
 
 
+    .bottom-text
+        display: none
+        margin: 0
+
+        +maxDesktop
+            display: block
+            color: white
+            font-size: 20px
+            line-height: 1.5
+            text-align: center
+            
 
 .knowledge-box
     display: flex
     .cloumns
         flex: 33.3%
 
+        +maxDesktop
+            position: relative
+            flex: 50%
+
     img
         display: block
+
     a
         display: inline-block
-        position: relative
         width: 100%
         text-decoration: none
         margin-bottom: 30px
 
-    .cloumns
-        margin-top: -52px * $r
+    +desktop
+        position: relative
+        .cloumns
+            margin-top: -52px * $r
 
-        &:nth-child(3)
-            margin-top: -200px * $r
+            &:nth-child(3)
+                margin-top: -200px * $r
+
+    +maxDesktop
+        a
+            display: block
+
+        .knowledge1 .peo
+            animation: bounce2 3s 1s ease-in infinite alternate
+        
+        .knowledge2 .peo
+            animation: bounce2 3s 2s ease-in infinite alternate
+
+        .knowledge3 .peo
+            animation: bounce2 3s 1.5s ease-in infinite alternate
+        
+        .knowledge4 .peo
+            animation: bounce2 3s 1.8s ease-in infinite alternate
+            
 
     .dialog
         position: absolute
@@ -256,6 +386,7 @@ body.game
         max-width: 320px
         opacity: 0
         transition: all .4s ease-in-out
+        z-index: 200
 
         .dialog-arrow
             display: block
@@ -280,54 +411,105 @@ body.game
             margin: 0
             margin-bottom: 20px
 
-        
 
 .knowledge1
-    padding-left: 43px * $r
-    padding-bottom: 50px * $r
-    img
-        width: 588px * $r
-
-        +desktop_xl
-            width: 588px * $r0
     
-    .dialog
-        top: 20%
-        right: -400px
-        z-index: 200
-        opacity: 0
-        transform: translateX(-100px)
+    +desktop
+        padding-left: 43px * $r
+        padding-bottom: 50px * $r
+        img
+            width: 588px * $r
 
-    &:hover .dialog
-        opacity: 1
-        transform: translateX(0)
-            
+            +desktop_xl
+                width: 588px * $r0
+        
+        .dialog
+            top: 20%
+            right: -400px
+            transform: translateX(-100px)
+
+        &:hover .dialog
+            opacity: 1
+            transform: translateX(0)
+
+    +maxDesktop
+        margin-left: -100px
+        
+        .peo-box
+            width: 260px * 1.1
+
+        .dialog
+            width: 75vw
+            max-width: initial
+            left: 40px
+            transform: none
+            width: calc(100vw - 100px)
+            box-sizing: border-box
+
+    
+    +iphone
+        margin-left: -100px
+        
+        .peo-box
+            width: 260px
+    
+
     .dialog-arrow
         top: 50px
         left: -40px
         opacity: .88
 
 .knowledge2 
-    padding-bottom: 50px * $r
-    padding-right: 45px * $r
-    padding-bottom: 87px * $r
 
-    img
-        float: right
-        width: 552px * $r
-        +desktop_xl
-            width: 552px * $r0
+    +desktop
+        padding-bottom: 50px * $r
+        padding-right: 45px * $r
+        padding-bottom: 87px * $r
 
-    .dialog
-        top: 140px
-        left: -400px
-        z-index: 200
-        opacity: 0
-        transform: translateX(100px)
+        img
+            float: right
+            width: 552px * $r
+            +desktop_xl
+                width: 552px * $r0
 
-    &:hover .dialog
-        opacity: 1
-        transform: translateX(0)
+        .dialog
+            top: 140px
+            left: -400px
+            transform: translateX(100px)
+
+        &:hover .dialog
+            opacity: 1
+            transform: translateX(0)
+
+    +maxDesktop
+        .peo-box
+            width: vw(232px,420px)
+            max-width: 232px * 1.3
+            img
+                margin-left: 80px
+
+        .dialog
+            max-width: initial
+            right: 40px
+            transform: none
+            width: calc(100vw - 100px)
+            box-sizing: border-box
+
+    +maxPad
+        .dialog
+            right: 40px
+
+    +phone
+        .dialog
+            right: 100px
+
+    +iphone
+        .peo-box
+            width: 232px
+
+        .dialog
+            right: 120px
+
 
     .dialog-arrow
         top: 50px
@@ -336,23 +518,52 @@ body.game
 
 
 .knowledge3
-    padding-left: 124px * $r
-    padding-bottom: 24px * $r
-    img
-        width: 539px * $r
-        +desktop_xl
-            width: 539px * $r0
 
-    .dialog
-        bottom: 30%
-        right: -400px
-        z-index: 200
-        opacity: 0
-        transform: translateX(-100px)
+    +desktop
+        padding-left: 124px * $r
+        padding-bottom: 24px * $r
+        img
+            width: 539px * $r
+            +desktop_xl
+                width: 539px * $r0
 
-    &:hover .dialog
-        opacity: 1
-        transform: translateX(0)
+        .dialog
+            bottom: 30%
+            right: -400px
+            transform: translateX(-100px)
+
+        &:hover .dialog
+            opacity: 1
+            transform: translateX(0)
+
+    +maxDesktop
+        margin-top: 120px
+        margin-bottom: 0 !important
+
+        .peo-box
+            width: 230px * 1.2
+            transform: translateX(-100px)
+
+        .dialog
+            top: auto
+            bottom: 220px
+            width: calc(100vw - 100px)
+            max-width: initial
+            left: 40px
+            transform: none
+            box-sizing: border-box
+
+        .dialog-arrow
+            transform: scaleY(-1) !important
+            bottom: 30px !important
+
+    +iphone
+        margin-top: 120px
+        margin-bottom: 0 !important
+        
+        .peo-box
+            width: 230px
+
 
     .dialog-arrow
         bottom: 80px
@@ -360,22 +571,61 @@ body.game
         opacity: .88
 
 .knowledge4
-    img
-        float: right
-        width: 560px * $r
-        +desktop_xl
-            width: 560px * $r0
+    +desktop
+        img
+            float: right
+            width: 560px * $r
+            +desktop_xl
+                width: 560px * $r0
 
-    .dialog
-        top: 0
-        left: -400px
-        z-index: 200
-        opacity: 0
-        transform: translateX(100px)
+        .dialog
+            top: 0
+            left: -400px
+            transform: translateX(100px)
 
-    &:hover .dialog
-        opacity: 1
-        transform: translateX(0)
+        &:hover .dialog
+            opacity: 1
+            transform: translateX(0)
+
+    +maxDesktop
+        margin-bottom: 0 !important
+        margin-top: 120px !important
+
+        .peo-box
+            width: vw(222px,420px)
+            max-width: 222px * 1.2
+            
+            img
+                margin-left: 80px
+
+        .dialog
+            max-width: initial
+            right: 40px
+            bottom: 220px
+            top: auto
+            transform: none
+            width: calc(100vw - 100px)
+            box-sizing: border-box
+
+        .dialog-arrow
+            transform: scaleY(-1) !important
+            bottom: 30px !important
+            top: auto !important
+
+    +maxPad
+        .dialog
+            right: 40px
+
+    +phone
+        .dialog
+            right: 100px
+
+    +iphone
+        .peo-box
+            width: 232px
+
+        .dialog
+            right: 120px
 
     .dialog-arrow
         top: 50px
@@ -386,11 +636,12 @@ body.game
 .btn-knowledge
     .peo-box
         transition: all .4s ease
-    &:hover
-        .peo-box
-            transform: scale(1.02)
-        .peo
-            animation: bounce2 3s ease-in infinite alternate
+    +desktop
+        &:hover
+            .peo-box
+                transform: scale(1.02)
+            .peo
+                animation: bounce2 3s ease-in infinite alternate
 
 @keyframes bounce2
     0%, 20%, 50%, 80%, 100%
@@ -408,6 +659,9 @@ body.game
     border-top: $borderStyle
     border-bottom: $borderStyle
     overflow: hidden
+
+    +maxDesktop
+        height: 50px
 
 
 .card-marquee
@@ -438,6 +692,9 @@ body.game
     .content
         position: relative
         padding-left: 110px * $r
+
+        +maxDesktop
+            padding-left: 0
     .title
         position: absolute
         top: 120px * $r
@@ -445,9 +702,25 @@ body.game
         width: 120px * 0.9
         height: auto
 
+        +maxDesktop
+            position: relative
+            padding: 0 15px
+            top: auto
+            left: auto
+            width: vw(327px,420px)
+            margin: 0 auto 40px
+
+            img
+                width: 100%
+
+
     .main
         padding-top: 120px * $r
         padding-left: 240px * $r
+
+        +maxDesktop
+            padding-top: 50px
+            padding-left: 30px
 
     // .slide
     //     padding-left: 20px
@@ -536,6 +809,9 @@ body.game
     padding-top: 200px * $r
     padding-bottom: 50px * $r
     background: linear-gradient(0deg, #6AE0D0 0% ,#6AE0D0 8%,#ACC9D4 15%,#EEB4D8 30%,#F6E8DC 50%,#FFF 100%) 0% 0% no-repeat
+
+    +maxDesktop
+        padding-top: 100px
     .title
         text-align: right
         margin-bottom: 50px * $r
@@ -543,25 +819,51 @@ body.game
         img
             width: 352px * 0.9
 
+        +maxDesktop
+            width: vw(163px ,420px)
+            margin: 0 auto 50px
+            img
+                width: 100%
+
     .btn-next
         text-align: right
 
 .sambo-nav
+    +maxDesktop
+        display: flex
+        align-items: start
+        justify-content: center
     a
         position: relative
         display: inline-block
         margin-right: 50px * $r
+
+        +maxDesktop
+            display: block
+            flex: 33%
+            &:last-child
+                margin-right: 0
+            &:nth-child(2)
+                flex: 27%
+            &:nth-child(3),&:nth-child(4)
+                flex: 19%
+
+            img
+                width: 100%
         
     img
         transition: all .5s ease
-        height: 220px * $r              
+        width: 100%
+        height: 100%
+        object-fit: contain
+        object-position: center
+        height: 220px * $r
         &.hover
             opacity: 0
             position: absolute
             top: 0
             left: 0
-            width: 100%
-            height: auto
+            
 
     a:hover img.default
         opacity: 0
@@ -570,7 +872,7 @@ body.game
         transform: scale(1.1)
 
     a.active img.default
-        opacity: 1
+        opacity: 9
     a.active img.hover
         opacity: 1
         transform: scale(1)
@@ -580,6 +882,11 @@ body.game
     margin-left: -100px
     margin-right: -100px
 
+    +maxDesktop
+        margin-left: 0
+        margin-right: 0
+        margin-top: 0
+
     img
         max-width: 100%
 
@@ -588,15 +895,121 @@ body.game
     svg
         width: 350px * $r
 
+#shop
+    background: radial-gradient(circle, #F5E6DC 20%, #EFC9D8 50%, #DACAE2 60%, #CAE5FA 90%, #CAE5FA 100%)
+
+    .shop-hero
+        height: 460px * $r
+        width: 100%
+        background-color: #848484
+        margin-bottom: 40px
+
+        +maxDesktop
+            height: 460px * $r2
+
+        .title
+            padding-top: 50px
+            width: 301px * $r
+
+            img
+                max-width: 100%
+
+            +maxDesktop
+                width: 170px
+
+
+
+    .shop-row
+        display: flex
+        flex-flow: wrap row
+        padding-bottom: 40px
+        justify-content: center
+
+        .shop-col
+            position: relative
+            margin-bottom: 15px
+
+        +desktop
+            padding-bottom: 50px
+            margin-left: -15px
+            margin-right: -15px
+
+            .shop-col
+                flex: auto
+                max-width: 50%
+                text-align: center
+                padding: 0 15px
+                box-sizing: border-box
+                margin-bottom: 0
+
+                &:nth-child(2)
+                    padding-top: 100px
+
+                &:nth-child(3)
+                    margin-top: 30px
+
+    .shop-item
+        position: relative
+        display: inline-block
+        padding-right: 36px
+        margin-bottom: 20px
+
+        &::after
+            content: ""
+            position: absolute
+            top: 63px
+            right: 0
+            bottom: 0
+            left: 36px
+            background-color: #3B3B3B
+            z-index: 1
+
+            +maxDesktop
+                top: 63px * $r
+                left: 36px * $r
+
+        img
+            position: relative
+            border: 1px solid #707070
+            z-index: 10
+        
+        p
+            color: white
+            font-size: 24px
+            line-height: 1.5
+            margin: 0
+            margin-bottom: 8px
+            position: relative
+            z-index: 20
+            padding-left: 50px
+            text-align: left
+
+            +maxDesktop
+                font-size: 20px
+                padding-top: 8px
+.btn-shop
+    width: 289px * $r
+    padding-bottom: 50px
+    margin: 0 auto
+
+
 #news
     background: radial-gradient(circle, #F5E6DC 20%, #EFC9D8 50%, #DACAE2 60%, #CAE5FA 90%, #CAE5FA 100%)
 
     .title
         position: relative
         padding-top: 60px * $r
-        width: 300px * $r
+        width: 350px * $r
         margin-left: -74px * $r
         z-index: 200
+
+        img
+            max-width: 100%
+
+        +maxDesktop
+            margin-left: 0
+            width: vw(169px,420px)
+            max-width: 220px
 
     .content
         width: 80%
@@ -605,8 +1018,21 @@ body.game
         margin-top: -200px * $r
         padding-bottom: 50px
 
+        +maxDesktop
+            margin-top: -100px
+            width: auto
+            padding-left: 5px
+            padding-right: 5px
+            
+
         &.full
             width: 95%
+
+            +maxDesktop
+                margin-top: -40px
+                width: auto
+                padding-left: 5px
+                padding-right: 5px
 
 
 
@@ -617,6 +1043,10 @@ body.game
         &.for-news-detail
             margin-top: -30px
             margin-right: -50px
+
+            +maxDesktop
+                margin-right: 0
+                margin-top: 20px
 
 
 .item-article
@@ -631,6 +1061,11 @@ body.game
     cursor: pointer
     user-select: none
 
+    +maxDesktop
+        border-radius: 0 80px 0 0
+        padding: 25px
+        padding-top: 40px
+
     a
         color: black
         text-decoration: none
@@ -644,6 +1079,12 @@ body.game
         font-family:'Dela Gothic One', sans-serif
         font-weight: 400
 
+        +maxPad
+            font-size: 30px
+
+        +phone
+            font-size: 32px
+
     p
         font-size: 20px
         line-height: 1.5
@@ -655,11 +1096,22 @@ body.game
         display: flex
         margin-bottom: 20px
 
+        .desc p br
+            display: none    
+
         &.wrap
             flex-flow: wrap
 
         .img
             padding-right: 25px
+
+            img
+                width: 100%
+
+            +maxDesktop
+                flex: 40%
+                max-width: 150px
+                min-width: 90px
 
     img.max-img
         max-width: 200px
@@ -669,12 +1121,31 @@ body.game
         text-align: right
         padding-top: 20px
 
+        +maxDesktop
+            position: relative
+            padding-right: 80px
+
+            .mobile-desc
+                text-align: left
+
+        +phone
+            padding-right: 40px
+
+            p br
+                display: none
+
         &.fix-bottom
             padding-top: 50px
-        img
+        svg
             margin-right: -10px
             width: 232px *$r
 
+            +maxDesktop
+                position: absolute
+                top: 0
+                right: 0
+                g[data-name=learn-more]
+                    display: none
 .gridbox
     display: grid
     grid-template-columns: repeat(2, 1fr)
@@ -682,32 +1153,93 @@ body.game
     grid-column-gap: 30px
     grid-row-gap: 30px
 
+    .mobile-desc
+        display: none
+    +maxDesktop
+        display: block
+
+        .desc p
+            display: none
+
+        .mobile-desc
+            display: block
+
     .item-article
         position: relative
 
-        .obj img
+        .obj svg
             max-width: 100%
+        +desktop
+            &:nth-child(1)
+                grid-area: 1 / 1 / 2 / 4
+            &:nth-child(2)
+                grid-area: 2 / 1 / 4 / 2
 
-    .arti1
-        grid-area: 1 / 1 / 2 / 4
-    .arti2
-        grid-area: 2 / 1 / 4 / 2
-    .arti3
-        grid-area: 2 / 2 / 3 / 3
+                .textbox
+                    display: block
 
-        .obj
-            position: absolute
-            bottom: 12%
-            left: -15px
-            width: 260px *$r
-    .arti4
-        grid-area: 3 / 2 / 4 / 3
-        .obj
-            position: absolute
-            bottom: 25%
-            right: 0
-            width: 186px *$r
+            &:nth-child(3)
+                grid-area: 2 / 2 / 3 / 3
 
+                .obj
+                    position: absolute
+                    bottom: 5%
+                    right: 220px
+                    width: auto
+                    height: 120px
+
+                    img
+                        width: auto
+                        height: 100%
+
+
+            &:nth-child(4)
+                grid-area: 3 / 2 / 4 / 3
+                .obj
+                    position: absolute
+                    bottom: 90px
+                    right: 0
+                    height: 120px
+
+                    img
+                        width: auto
+                        height: 100%
+
+        +maxDesktop
+            margin-bottom: 30px
+
+            .obj img
+                width: auto
+                height: 100%
+                
+
+            &:nth-child(3)
+                padding-bottom: 70px
+
+                .more g[data-name=learn-more]
+                    display: block
+
+                .obj
+                    position: absolute
+                    bottom: -20px
+                    left: 20px
+                    width: auto
+                    height: 100px
+                    z-index: 2
+            &:nth-child(4)
+                padding-bottom: 40px
+
+                .more g[data-name=learn-more]
+                    display: block
+
+                .obj
+                    position: absolute
+                    bottom: -20px
+                    left: 50px
+                    width: auto
+                    height: 100px
+                    z-index: 2
+                    
 #footer
     text-align: center
 
@@ -724,11 +1256,25 @@ body.game
     grid-column-gap: 30px
     grid-row-gap: 30px
 
+    +maxDesktop
+        padding: 30px
+        padding-top: 50px
+
+    .news-detail-img
+        display: none
+
+    +maxDesktop
+        display: block
+
     img
         width: 100%
 
     .news-img
         grid-area: left
+
+        +maxDesktop
+            display: none
+
     .news-detail
         grid-area: top
     .news-licence
@@ -739,9 +1285,28 @@ body.game
             max-width: 100%
     .news-chat
         grid-area: chat
+
     .news-detail
         border: 1px solid black
         padding: 20px
+        
+        +maxDesktop
+            padding: 0
+            border: none
+            margin-bottom: 30px
+
+            .textbox
+                display: flex
+                margin-bottom: 15px
+                padding-bottom: 15px
+                border-bottom: 1px solid black
+
+                .img
+                    flex: 40%
+                    max-width: 150px
+                    min-width: 90px
+                    padding-right: 25px
+                    box-sizing: border-box
 
         h3,p
             margin: 0
@@ -754,10 +1319,12 @@ body.game
                 font-size: 16px
                 line-height: 1.6
 
+                +maxDesktop
+                    font-size: 18px
+
 
     .news-title
         display: flex
-        
 
         h3,p
             flex: 50%
@@ -769,6 +1336,14 @@ body.game
             text-align: right
 
 
+        +maxDesktop
+            display: block
+
+            p,h3
+                text-align: left
+                font-size: 34px
+
+
 .filter-option
     position: relative
     background-color: #fff
@@ -778,6 +1353,9 @@ body.game
     float: right
     box-shadow: 5px 5px 0 #3F3F3F
     margin-bottom: 40px
+    +maxPad
+        width: vw(157px,420px)
+        margin-bottom: 20px
 
     .arrow
         content: ""
@@ -821,8 +1399,19 @@ body.game
 
 
 .sambo-slide
-    svg
+    svg,img
         width: 100%
+    img.desktop,svg.desktop
+        display: block
+    img.mobile,svg.mobile
+        display: none
+
+    +maxDesktop
+        img.desktop,svg.desktop
+            display: none
+        img.mobile,svg.mobile
+            display: block
+
 
 
 #sambo1.ani

@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RockyRoad</title>
+    <meta property="og:title" content="RockyRoad" />
+    <meta property="og:description" content="RockyRoad" />
+    <meta property="og:image" content="images/meta.png" />
+    <meta property="og:url" content="http://rockyroad.02580.me/" />
+    <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+TC:wght@400;700;900&family=RocknRoll+One&display=swap" rel="stylesheet">
@@ -310,7 +315,7 @@
                   </svg>
                 <div class="ovr-bg"></div><div class="bg"></div>
             </a></div>
-            <div class="item nav-4"><a href="#">
+            <div class="item nav-4"><a href="shop.html">
                 <svg id="_4" data-name=" 4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 242.5 236.5">
                     <defs>
                       <clipPath id="clippath">
@@ -381,9 +386,13 @@
         </div>
     </div>
     <div id="page">
-        <section id="knowledge">
+        <section id="knowledge" class="">
             <div class="container">
-                <div class="title"><img src="images/knowledge-title.svg" alt=""></div>
+                <div class="title switch-img">
+                  <img src="images/knowledge-title.svg" class="desktop">
+                  <img src="images/m-knowledge-title.svg" class="mobile">
+                </div>
+                
                 <div class="knowledge-box">
                     <div class="cloumns">
                         <a href="javascript:;" class="btn-knowledge knowledge1">
@@ -401,7 +410,7 @@
                             </div>
                         </a>
                         <a href="javascript:;" class="btn-knowledge knowledge3">
-                            <img src="images/knowledge_navi3.svg" class="peo" alt="">
+                          <div class="peo-box"><img src="images/knowledge_navi3.svg" class="peo" alt=""></div>
                             <div class="dialog">
                                 <img src="images/dialog-arrow-left.svg" class="dialog-arrow" alt="">
                                 <div class="dialog-inner">
@@ -450,13 +459,18 @@
                         </a>
                     </div>
                 </div>
+
+                <p class="bottom-text">雲朵們有話要說…！</p>
             </div>
         </section>
         <section id="card">
             <div class="card-top"><div class="card-marquee"></div></div>
             <div class="content">
                 <div class="main">
-                    <div class="title"><img src="images/card-title.svg" alt=""></div>
+                    <div class="title switch-img">
+                      <img src="images/card-title.svg" class="desktop">
+                      <img src="images/m-card-title.svg" class="mobile">
+                    </div>
                     <div class="card-swipe">
                         <div class="swiper">
                         <div class="swiper-wrapper">
@@ -509,7 +523,10 @@
         </section>
         <section id="sambo">
             <div class="container">
-                <div class="title"><img src="images/sambo-title.svg" alt=""></div>
+                <div class="title switch-img">
+                  <img src="images/sambo-title.svg" class="desktop">
+                  <img src="images/m-sambo-title.svg" class="mobile">
+                </div>
                 <div class="sambo-nav">
                     <a href="#sambo1" class="navi1 active">
                         <img src="images/sambo-nav1.svg" class="default" alt="">
@@ -530,7 +547,7 @@
                 </div>
                 <div class="sambo-main">
                     <div id="sambo1" class="sambo-slide ani" style="display:block;">
-                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
+                      <svg class="desktop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
                         <defs>
                           <linearGradient id="sambo-1-g" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
                             <stop offset="0" stop-color="#fff"/>
@@ -741,9 +758,10 @@
                           <rect id="長方形_779" data-name="長方形 779" width="1770" height="700" transform="translate(75 2718)" fill="none"/>
                         </g>
                       </svg>
+                      <img src="images/m-sambo-detail1.svg" class="mobile" alt="">
                     </div>
                     <div id="sambo2" class="sambo-slide" style="display:none;">
-                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
+                      <svg class="desktop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
                         <defs>
                           <linearGradient id="sambo-3" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
                             <stop offset="0" stop-color="#fff"/>
@@ -923,10 +941,10 @@
                           </g>
                         </g>
                       </svg>
-                      
+                      <img src="images/m-sambo-detail2.svg" class="mobile" alt="">
                     </div>
                     <div id="sambo3" class="sambo-slide" style="display:none;">
-                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
+                      <svg class="desktop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
                         <defs>
                           <linearGradient id="sambo-4" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
                             <stop offset="0" stop-color="#fff"/>
@@ -1103,10 +1121,10 @@
                           <rect id="長方形_782" data-name="長方形 782" width="1770" height="700" transform="translate(85 2714)" fill="none"/>
                         </g>
                       </svg>
-                      
+                      <img src="images/m-sambo-detail3.svg" class="mobile" alt="">
                     </div>
                     <div id="sambo4" class="sambo-slide" style="display:none;">
-                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
+                      <svg class="desktop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1770" height="700" viewBox="0 0 1770 700">
                         <defs>
                           <linearGradient id="sambo-2" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
                             <stop offset="0" stop-color="#fff"/>
@@ -1324,8 +1342,7 @@
                           <rect id="長方形_780" data-name="長方形 780" width="1770" height="700" transform="translate(85 2715)" fill="none"/>
                         </g>
                       </svg>
-                      
-                      
+                      <img src="images/m-sambo-detail4.svg" class="mobile" alt="">
                     </div>
                 </div>
                 <div class="btn-next"><a href="#">
@@ -1374,12 +1391,20 @@
     <script src="./js/page.js"></script>
     <script>
       const swiper = new Swiper('.swiper', {
-          slidesPerView: 2.5,
-          spaceBetween: 30,
+          slidesPerView: 1.5,
+          spaceBetween: 0,
           loop: true,
           breakpoints:{
               1500:{
                   slidesPerView: 3.5,
+                  spaceBetween: 0,
+              },
+              992:{
+                  slidesPerView: 2.5,
+                  spaceBetween: 0,
+              },
+              576:{
+                  slidesPerView: 1.5,
                   spaceBetween: 0,
               },
           }

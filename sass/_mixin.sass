@@ -13,6 +13,11 @@
 @mixin desktop
     @media (min-width: 992px)
         @content
+
+@mixin maxDesktop
+    @media (max-width: 992px)
+        @content
+
 @mixin maxPad
     @media (max-width: 768px)
         @content
@@ -22,7 +27,7 @@
         @content
 
 @mixin phone
-    @media (min-width: 576px)
+    @media (max-width: 576px)
         @content
 
 @mixin iphone
