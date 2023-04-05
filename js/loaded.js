@@ -24,10 +24,10 @@ $(function(){
             .to('#loading', {'display': 'none'});
 
             let initAni = gsap.timeline()
-                .set('#home .car', {'opacity': 0 ,y: -200})
-                .set('#home .big-logo', {'opacity': 0,y: -500 ,scale:0 ,rotation: '100deg'})
-                .to('#home .car', {'opacity': 1, duration: 0.8 ,y: 0 ,ease: Back.easeOut})
-                .to('#home .big-logo', {'opacity': 1, duration: 0.8 ,y: 0 ,scale:1 ,rotation:'0deg' ,ease: Back.easeOut})
+                .set('#home .car,#mob-home .car', {'opacity': 0 ,y: -200})
+                .set('#home .big-logo,#mob-home .big-logo', {'opacity': 0,y: -500 ,scale:0 ,rotation: '100deg'})
+                .to('#home .car,#mob-home .car', {'opacity': 1, duration: 0.8 ,y: 0 ,ease: Back.easeOut})
+                .to('#home .big-logo,#mob-home .big-logo', {'opacity': 1, duration: 0.8 ,y: 0 ,scale:1 ,rotation:'0deg' ,ease: Back.easeOut})
         }
     }
     });

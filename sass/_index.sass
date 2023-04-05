@@ -2,6 +2,10 @@
 #home
     padding: 24px
     overflow: hidden
+    display: block
+
+    +maxDesktop
+        display: none
 
 .home-content
     border: $borderStyle
@@ -21,6 +25,9 @@
 
 .border-right
     border-right: $borderStyle
+
+.border-left
+    border-left: $borderStyle
 
 .header
     display: grid
@@ -88,15 +95,20 @@
     background-repeat: repeat
     animation: marquee2Up 50s infinite linear
 
+    +maxDesktop
+        width: 100%
+        background-image: url(../images/home-news-ticker2.svg)
+        background-size: 70% auto
+
     &.down
         animation-name: marqueeDown
 
 @keyframes marquee2Up
   0%
-    background-position: 0 0
+    background-position: center 0
 
   100%
-    background-position: 0 -4310px
+    background-position: center -4310px
 
 
 .text-marquee3
@@ -108,6 +120,10 @@
     background-size: auto 50px
     background-repeat: repeat
     animation: marqueeLeft 50s infinite linear
+
+    +maxDesktop
+        height: 50%
+        background-size: auto 100%
 
 @keyframes marqueeLeft
   0%
@@ -255,6 +271,9 @@
         opacity: 0
 
 
+.m-logo
+    background-color: #FFE266
+
 .main-bottom
     position: relative
     padding-top: 30px
@@ -262,10 +281,25 @@
     background: url(../images/home-bottom.svg) repeat-x left bottom
     background-size: 100% auto
 
+    +maxDesktop
+        padding-top: 50px
+        padding-bottom: 20px
+        background-size: auto 24px
+
     .car
         position: relative
         width: 286px
         margin: 0 auto
+
+        img
+            max-width: 100%
+
+        +maxDesktop
+            transform: translateX(20px)
+
+        +phone
+            width: 150px
+            transform: translateX(0px)
 
         .text-ani
             position: absolute
@@ -275,6 +309,12 @@
             animation: carMoveText 2s ease infinite alternate
             transform-origin: center bottom
             opacity: 0
+
+            +maxDesktop
+                left: 30px
+
+            +phone
+                left: 30px
 
         .car-ani
             animation: carMove 2s ease infinite alternate
@@ -294,6 +334,10 @@
         z-index: 10
 
 
+        +maxPad
+            font-size: 14px
+
+
 
 
 .btn-next a
@@ -310,4 +354,44 @@
             transform: scale(1.03)
         #arrow-next path
             fill: #383738
-        
+
+
+
+#mob-home
+    display: none
+    padding: 30px
+    max-width: 600px
+    margin: 0 auto
+    
+    +maxDesktop
+        display: block
+    +maxPad
+        padding: 15px
+
+    .mob-row
+        display: flex
+        width: 100%
+        a
+            display: block
+
+        img,svg
+            width: 100%
+            display: block
+
+        .col
+            flex: 74%
+            max-width: 74%
+            &:nth-child(1),&:nth-child(3)
+                flex: 13%
+                max-width: 13%
+                min-width: 13%
+
+            &.full
+                flex: 87%
+                max-width: 87%
+
+        &.for-right .col
+            &:nth-child(1)
+                order: 2
+            &:nth-child(2)
+                order: 1
