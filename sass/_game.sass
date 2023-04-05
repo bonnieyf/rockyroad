@@ -97,10 +97,25 @@ $r2: 0.85
         align-items: center
         text-align: center
 
+        +maxDesktop
+            display: block
+            padding-top: 20px
+
+            p
+                margin: 0
+                margin-bottom: 10px
+                
+                +maxPad
+                    font-size: 24px
+
         .item
             flex: auto
             &:nth-child(2)
                 color: #FF72D9
+
+            +maxDesktop
+                &:nth-child(2),&:nth-child(3)
+                    display: inline-block
         .btn-start
             flex: 180px
             max-width: 180px
@@ -108,6 +123,13 @@ $r2: 0.85
             opacity: 0
             transition: all .3s ease
             visibility: hidden
+
+            +maxDesktop
+                padding-left: 0
+                margin: 0 auto 20px
+
+            +maxPad
+                max-width: 130px
 
             &.show
                 opacity: 1
@@ -119,6 +141,12 @@ $r2: 0.85
 .car-options
     display: flex
     align-items: baseline
+
+    +maxDesktop
+        margin-top: -50px
+
+    +phone
+        margin-top: 0
     a
         display: block
         color: #2C2A2A
@@ -130,20 +158,26 @@ $r2: 0.85
         position: relative
         color: #2C2A2A
         font-size: 30px
-        overflow: hidden
 
         img,svg
             max-width: 100%
-            margin-top: -100px
+            margin-top: -60px
+
+            +phone
+                margin-top: 0
 
             .light
                 opacity: 0
                 transition: all .5s ease
 
-        &:nth-child(1) img
-            margin-right: -50px
-        &:nth-child(2) img
-            margin-left: -50px
+        &:nth-child(1) img,&:nth-child(1) svg
+            transform: scale(1.1)
+            +maxDesktop
+                transform: scale(1.3)
+
+        &:nth-child(2) img,&:nth-child(2) svg
+            +maxDesktop
+                transform: scale(1.2)
 
 
         a:hover
@@ -160,6 +194,23 @@ $r2: 0.85
         opacity: 0
         user-select: none
         transition: all .5s ease
+
+        +maxDesktop
+            margin-top: -120px
+        +phone
+            margin-top: 30px
+        +iphone
+            font-size: 24px
+            margin-top: -30px
+    svg
+        +maxDesktop
+            height: 550px
+        +phone
+            width: 100%
+            height: 200px
+
+#init-select-car
+    overflow: hidden
 
 .popup-box
     max-width: 1000px
