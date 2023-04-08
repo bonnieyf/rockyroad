@@ -257,8 +257,9 @@ body.game
             .knowledge2,.knowledge3,.knowledge4
                 opacity: 0
                 visibility: hidden
-            .dialog
+            .knowledge1 .dialog
                 opacity: 1
+                left: 130px
                 transform: translateX(0)
 
         &.active2 
@@ -272,8 +273,10 @@ body.game
             .knowledge1,.knowledge3,.knowledge4
                 opacity: 0
                 visibility: hidden
-            .dialog
+
+            .knowledge2 .dialog
                 opacity: 1
+                right: 40px
                 transform: translateX(0)
 
         &.active3 
@@ -288,8 +291,9 @@ body.game
             .knowledge1,.knowledge2,.knowledge4
                 opacity: 0
                 visibility: hidden
-            .dialog
+            .knowledge3 .dialog
                 opacity: 1
+                left: 40px
                 transform: translateX(0)
 
         &.active4 
@@ -305,8 +309,9 @@ body.game
                 opacity: 0
                 visibility: hidden
 
-            .dialog
+            .knowledge4 .dialog
                 opacity: 1
+                right: 40px
                 transform: translateX(0)
 
     .peo
@@ -405,6 +410,7 @@ body.game
         opacity: 0
         transition: all .4s ease-in-out
         z-index: 200
+        pointer-events: none
 
         .dialog-arrow
             display: block
@@ -451,7 +457,7 @@ body.game
             transform: translateX(0)
 
     +maxDesktop
-        margin-left: -100px
+        transform: translateX(-100px)
         
         .peo-box
             width: 260px * 1.1
@@ -469,13 +475,11 @@ body.game
             left: 30px
 
     +phone
+        
         .dialog
             width: 300px
 
-    
     +iphone
-        margin-left: -100px
-        
         
         .peo-box
             width: 260px
@@ -531,18 +535,16 @@ body.game
     +phone
         .dialog
             top: 200px
-            right: 40px
+            right: -100px
             width: 300px
 
     +iphone
         .peo-box
             width: 232px
+            transform: translateX(20px)
 
             img
                 margin-left: 0
-
-        .dialog
-            right: 40px
 
 
     .dialog-arrow
@@ -571,13 +573,14 @@ body.game
             transform: translateX(0)
 
     +maxDesktop
-        margin-top: 120px
+        margin-top: 300px
         margin-bottom: 0 !important
 
         .peo-box
             width: 230px * 1.2
             transform: translateX(-100px)
             margin-top: 240px
+            z-index: 20
 
         .dialog
             top: auto
@@ -595,11 +598,11 @@ body.game
     +maxPad
         .dialog
             left: 20px
+            left: -100px
 
     +phone
         .dialog
             bottom: 200px
-            left: 40px
             width: 300px
     +iphone
         margin-top: 250px
@@ -658,18 +661,18 @@ body.game
 
     +maxPad
         .dialog
-            right: 40px
+            right: -100px
 
     +phone
         .dialog
             bottom: 220px
-            right: 40px
             width: 300px
 
     +iphone
         margin-top: 240px !important
         .peo-box
             width: 232px
+            transform: translateX(20px)
             img
                 margin-left: 0
 
@@ -686,12 +689,17 @@ body.game
 .btn-knowledge
     .peo-box
         transition: all .4s ease
+        position: relative
     +desktop
         &:hover
             .peo-box
                 transform: scale(1.02)
             .peo
                 animation: bounce2 3s ease-in infinite alternate
+
+    +maxPad
+        .peo-box
+            z-index: 200
 
 @keyframes bounce2
     0%, 20%, 50%, 80%, 100%

@@ -137,8 +137,109 @@ body,html
     transform: scale(1, 1)
 
 
+#game-warning
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    display: block
+    opacity: 1
+    z-index: 5000
+    width: 1100px
+    height: auto
+    visibility: hidden
+    opacity: 0
+    margin-top: -100px
+
+    &.active
+        visibility: initial
+        opacity: 1
+        margin-top: 0
+
+    .bg
+        max-width: 100%
+
+    .center
+        width: 700px
+        height: 200px
+        position: absolute
+        top: 220px
+        left: 50%
+        transform: translateX(-50%)
+        overflow-y: auto
+        overflow-x: hidden
+        color: black
+        font-size: 20px
+        font-family: 'Noto Sans TC',"微軟正黑體", sans-serif
+        line-height: 1.5
+        text-align: center
 
 
+    .btn-next-more
+        position: absolute
+        bottom: 50px
+        right: 80px
+        width: 300px
+        z-index: 200
+        a
+            display: block
+        img
+            width: 100% 
+
+#game-oops
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    display: block
+    opacity: 1
+    z-index: 5000
+    width: 1100px
+    height: auto
+    visibility: hidden
+    opacity: 0
+    margin-top: -100px
+
+    &.active
+        visibility: initial
+        opacity: 1
+        margin-top: 0
+
+    .bg
+        max-width: 100%
+
+    .center
+        width: 550px
+        height: 300px
+        position: absolute
+        top: 140px
+        left: 50%
+        transform: translateX(-45%)
+        overflow-y: auto
+        overflow-x: hidden
+        color: black
+        font-size: 20px
+        font-family: 'Noto Sans TC',"微軟正黑體", sans-serif
+        line-height: 1.5
+        text-align: center
+
+    img
+        max-width: 100%
+
+    .btn-next-more
+        position: absolute
+        bottom: 50px
+        right: 80px
+        width: 300px
+        z-index: 200
+        a
+            display: block
+        img
+            width: 100% 
+
+    .inner-textarea
+        padding-right: 15px
+        
 #alert-rotate
     position: fixed
     top: 0

@@ -220,11 +220,15 @@ $r2: 0.85
     z-index: 5000
     user-select: none
 
+    +maxDesktop
+        width: 90%
+
     .bg
         position: relative
         width: 100%
         border-left: 6px solid #13E5CA
         border-right: 6px solid #FF72D9
+        box-sizing: border-box
 
         &:before
             content: ""
@@ -252,10 +256,17 @@ $r2: 0.85
         padding: 20px
         padding-bottom: 30px
 
+        +maxPad
+            padding: 20px 15px
+
         p
             font-size: 30px
             line-height: 1.5
+            +maxPad
+                font-size: 24px
 
+            +phone
+                font-size: 18px
             b
                 font-weight: normal
                 color: #FF00FF
@@ -263,13 +274,31 @@ $r2: 0.85
 
     .right-btn
         text-align: right
-
+        &::after
+            content: ""
+            display: block
+            clear: both
         img
             display: inline-block
+
+            +maxPad
+                display: block
+                width: 80%
+                float: right
+
+        .more-text
+            +maxPad
+                display: block
+                width: 40%
+                float: left
+                margin-top: 15px
             
     .center
         max-width: 82%
         margin: 0 auto
+
+        +maxPad
+            max-width: 90%
     .more-text
         width: 262px * $r
         vertical-align: bottom
@@ -285,10 +314,39 @@ $r2: 0.85
             max-width: 100%
             vertical-align: bottom
 
+.button
+    position: absolute
+    bottom: 100px
+    left: 500px
+    width: 200px
+    height: 200px
+    border-radius: 50%
+    background-color: black
+    color: white
+    font-size: 50px
+    font-weight: bold
+    line-height: 200px
+    text-align: center
+    z-index: 50000
+    cursor: pointer
+    user-select: none
+    animation: flashing 800ms linear infinite
 
+
+@keyframes flashing
+    0% 
+        background-color: black
+    50% 
+        background-color: red
+    100% 
+        background-color: black
 
 //選擇音樂
 #init-music-popup
+
+    &.popup-box .center
+        +maxDesktop
+            max-width: 90%
 
     .content
         background: none
@@ -301,12 +359,25 @@ $r2: 0.85
         line-height: 1.5
         text-align: center
 
+        +maxDesktop
+            font-size: 26px
+            margin-top: 30px
+            margin-bottom: 30px
+
+        +phone
+            font-size: 20px
+            margin-top: 10px
+            margin-bottom: 10px
+
         &.notice-msg
             color: #46ECDC
             font-size: 20px
             line-height: 1.5
             margin: 0
             margin-top: 20px
+
+            +phone
+                font-size: 16px
 
         b
             color: #FFA3D9
@@ -315,16 +386,28 @@ $r2: 0.85
 .choose-music
     display: flex
     align-items: center
+
     .left,.right
         position: relative
         flex: 50%
         padding: 0 30px
         box-sizing: border-box
 
+        +maxPad
+            padding: 0 15px
+
 
     .music-sample
         position: relative
         max-width: 300px
+
+        +maxDesktop
+            max-width: 80%
+
+        +phone
+            width: 100px
+            max-width: 100%
+            margin: 0 auto
         div
             position: absolute
             top: 0
@@ -346,6 +429,9 @@ $r2: 0.85
     width: 249px *$r
     margin: 0 auto
 
+    +phone
+        width: 120px
+
     img
         max-width: 100%
 
@@ -361,12 +447,23 @@ $r2: 0.85
     margin-bottom: 60px
     margin-top: 80px
 
+    +maxDesktop
+        font-size: 22px
+        margin-top: 20px
+        margin-bottom: 20px
+
+    +phone
+        font-size: 16px
+
     ol
         margin: 0
         padding: 0
 
     li
         list-style: none
+        
+        +phone
+            margin-bottom: 10px
 
         &.active 
             .ico
@@ -385,6 +482,10 @@ $r2: 0.85
             opacity: 0
             transition: all .4s ease
             margin-left: -50px
+
+            +maxPad
+                width: 15px
+                margin-left: -20px
     
 
     a
@@ -547,6 +648,31 @@ $r2: 0.85
     z-index: 5000
     background: linear-gradient(0deg, rgba(#B3E2D0,1) 0%,rgba(#EEC7D8,1) 30%,rgba(#F7E9DE,1) 40%,#FDFAF8 100%)
     display: none
+
+    .row
+        display: flex
+        margin-left: -15px
+        margin-right: -15px
+        .col
+            flex: 50%
+            padding: 0 15px
+            box-sizing: border-box
+
+            &:nth-child(2)
+                flex: 45%
+
+        img
+            max-width: 100%
+
+    .btns
+        display: flex
+        margin-top: 20px
+        a
+            padding: 0 15px
+            flex: 50%
+
+        img
+            max-width: 100%
     
     #header-game
         text-align: left

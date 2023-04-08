@@ -23,5 +23,31 @@ $(function(){
 
     });
 
-    
+    $('.knowledge1').click(function(e){
+        e.stopPropagation();
+        $('#knowledge').addClass('active1');
+    });
+
+    $('.knowledge2').click(function(e){
+        e.stopPropagation();
+        $('#knowledge').addClass('active2');
+    });
+
+    $('.knowledge3').click(function(e){
+        e.stopPropagation();
+        $('#knowledge').addClass('active3');
+    });
+
+    $('.knowledge4').click(function(e){
+        e.stopPropagation();
+        $('#knowledge').addClass('active4');
+    });
+
+
+    $(document).on('click', function(event) {
+        if ($(event.target) !== $(event.target).closest('.btn-knowledge')) {
+            $('#knowledge').removeClass();
+        }
+    });
+
 });

@@ -5,34 +5,59 @@ let isVideoMuted = false; // 影片是否靜音
 let isAudioMuted = false; // 背景音是否靜音
 let isPlayIntroAnimation = false; // 是否撥放導引動畫
 let currentAudioVolume = 0.5; // 背景音音量
-let topicLevel = 8; // 從第幾關開始
+let topicLevel = 0; // 從第幾關開始
 let topicMaxLenght;
 let topicList;
 let mycar;
+let nextLevelCode;
+let isShowMessage = false;
+let isAvoid = false;
+let transList = {
+        "car":[
+            {prev: "1-2", next:"1-3",video_code: "1-2_1-3"},
+            {prev: "1-4", next:"2-1",video_code: "1-4_2-1"},
+            {prev: "2-1", next:"2-2",video_code: "2-1_2-2"},
+            {prev: "2-2", next:"2-3",video_code: "2-2_2-3"},
+            {prev: "2-4", next:"3-0",video_code: "2-4_3-0"},
+            {prev: "3-2", next:"3-3",video_code: "3-2_3-3"}
+        ],
+        "motor":[
+            {prev: "1-2", next:"1-3",video_code: "1-2_1-3"},
+            {prev: "1-4", next:"2-1",video_code: "1-4_2-1"},
+            {prev: "2-1", next:"2-2",video_code: "2-1_2-2"},
+            {prev: "2-2", next:"2-3",video_code: "2-2_2-3"},
+            {prev: "2-4", next:"3-0",video_code: "2-4_3-0"}
+        ]
+    };
 
 $(function(){
     let $game_topice =  $('#game-animation .topic');
 
     mycar = localStorage.getItem('myCar') == '極速哺哺' ? 'car' : 'motor';
-
     $.ajax({
         url: API,
         type: "GET",
         dataType: "json",
         success: function (data) {
             topicList = data[mycar];
-            console.log('data:'+ data[mycar]);
 
             topicMaxLenght = data[mycar].length - 1;
 
             // 先埋入所有的影片
             topicList.forEach(function(value){
-                let videos = `<video id="ani-${value.video_code}" controls="false" paused muted='${isVideoMuted}'><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video onloadstart="this.playbackRate = 5;" id="ani-${value.video_code}" controls="false" paused muted='${isVideoMuted}'><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
                 $game_topice.append(videos);
             });
+
+            transList[mycar].forEach(function(value){
+                let videos = `<video onloadstart="this.playbackRate = 5;" id="ani-${value.video_code}" controls="false" paused muted='${isVideoMuted}'><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
+                $game_topice.append(videos);
+            });
+
         }
     });
 
+    
 
     // 播放開頭打字動畫
     playIntroAnimation();
@@ -44,7 +69,6 @@ $(function(){
         SwitchPopup('#init-popup','#init-music-popup');
         $('.music-menu a').eq(0).click();
     });
-
 
     // 選音樂 popup
     $(document).on('click','.music-menu a',function(e){
@@ -72,6 +96,8 @@ $(function(){
         
         $('.background-music').append(audioHtml);
         document.getElementById("bg-audio").volume = currentAudioVolume;
+
+        
     });
 
     
@@ -84,7 +110,6 @@ $(function(){
 
         // 載入倒數動畫
         $('#init-timer').fadeIn();
-
         let video = $('#ani-'+topicList[topicLevel].video_code);
         video.addClass('active');
 
@@ -115,10 +140,11 @@ $(function(){
         });
         video.on("ended", function() {
             fadeInTopic();
+            
         });
     });
 
-
+    
     //選擇每一題選項後
     $(document).on('click','.choose-myoption',function(e){
         e.preventDefault();
@@ -126,30 +152,70 @@ $(function(){
         let myscore = parseInt($(this).attr('data-score'),10);
         let myresult = $(this).attr('data-file');
         let $game_result =  $('#game-animation .result');
+        let idx = $(this).index();
+        let _isColor = topicList[topicLevel].options[idx].color;
+        let _isExtra = topicList[topicLevel].options[idx].extra;
+        console.log('點選的 Video code:'+myresult);
 
-        
-        fadeOutTopic();
+        $('.game-popup .inner-textarea').empty();
 
-        $game_topice.removeClass('active');
-        $game_result.addClass('active');
-        $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
-        $('#result-'+myresult).addClass('active');
         totalScore+=myscore;
+
+        if(_isColor == 'red'){
+            $('#game-warning .inner-textarea').append(topicList[topicLevel].options[idx].message);
+            $('#game-warning').addClass('active');
+            $('.overlay').fadeIn();
+            $('.btn-next-more').attr('data-file',myresult);
+
+        }else if(_isExtra){
+            $('#game-oops .inner-textarea').append(topicList[topicLevel].options[idx].extra);
+            $('#game-oops').addClass('active');
+            $('.overlay').fadeIn();
+            $('.btn-next-more').attr('data-file',myresult);
+        }else{
+
+            fadeOutTopic();
+
+            $game_topice.removeClass('active');
+            $game_result.addClass('active');
+            $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
+            $('#result-'+myresult).addClass('active');
+        
+            document.getElementById('result-'+myresult).play();
+            
+            $('#result-'+myresult).on("ended", function() {
+                handleTopicLevel();
+            });
+        }
 
         console.log(`%c======= 點選此選項增加 ${myscore} 分======`, 'color: red');
 
-        document.getElementById('result-'+myresult).play();
+    });
+
+
+    $(document).on('click','.btn-next-more',function(){
+        $('.game-popup').removeClass('active');
+        $('.overlay').fadeOut();
+
+        let videoCode = $(this).attr('data-file');
+        fadeOutTopic();
+
+        $game_topice.removeClass('active');
+        $('#game-animation .result').addClass('active');
+        $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
+        $('#result-'+videoCode).addClass('active');
         
-        $('#result-'+myresult).on("ended", function() {
+
+        document.getElementById('result-'+videoCode).play();
+        $('#result-'+videoCode).on("ended", function() {
             handleTopicLevel();
         });
-
     });
 });
 
 
+
 function handleTopicLevel(){
-    
 
     if(topicLevel === topicMaxLenght){
         $('#game-result').fadeIn();
@@ -157,11 +223,82 @@ function handleTopicLevel(){
         return false;
     }
 
-    topicLevel++;
+    if(topicList[topicLevel].video_code == '3-0-0'){
+        if(isAvoid){
+            topicLevel = 9;
+        }else{
+            topicLevel = 10;
+        }
+    }else{
+        if(topicList[topicLevel].video_code == '3-1-1-0'){
+            topicLevel = 11;
+        }else{
+            topicLevel++;
+        }
+    }
 
+    console.log(topicList[topicLevel].video_code)
     console.log('目前關卡:'+topicLevel);
     console.log('%c累積分數：'+totalScore,'background-color: yellow');
 
+    nextLevelCode = topicList[topicLevel].video_code.slice(0,3);
+    console.log('下一個關卡: '+nextLevelCode);
+
+    
+
+
+    if(checkHasTransition(nextLevelCode)){
+        let transVideoCode = transList[mycar].find((value) => {return value.next == nextLevelCode}).video_code;
+        let currentTransVideo = $('#ani-'+transVideoCode);
+
+        $('#game-animation .result,#game-animation .result video').removeClass('active');
+
+        $('#game-animation .topic video').removeClass('active');
+        currentTransVideo.addClass('active');
+
+        currentTransVideo.get(0).play();
+        currentTransVideo.on("ended", function() {
+            console.log('play end!!!');
+            playResultAnimation();
+        });
+        return false;
+    }
+
+    playResultAnimation();
+
+}
+
+
+function addButton(){
+    $('body').append('<div class="avoid-button button">閃避</div>');
+    setTimeout(function(){
+        isAvoid = false;
+        fadeOutTopic();
+        
+        $('#game-animation .topic').removeClass('active');
+        $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
+        handleTopicLevel();
+    },3000);
+
+    $('.avoid-button').click(function(){
+        isAvoid = true;
+        fadeOutTopic();
+        
+        $('#game-animation .topic').removeClass('active');
+        $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
+        handleTopicLevel();
+    });
+
+    
+}
+
+function playResultAnimation(){
+    console.log('------------------------------');
+    console.log('------------------------------');
+    console.log(topicList[topicLevel])
+    console.log(topicLevel);
+    console.log('------------------------------');
+    console.log('------------------------------');
     let video = $('#ani-'+topicList[topicLevel].video_code);
     $('#game-animation .topic video').removeClass('active');
     video.addClass('active');
@@ -174,27 +311,47 @@ function handleTopicLevel(){
     video.on("ended", function() {
         fadeInTopic();
     });
+}
 
-    
+function checkHasTransition (nextLevelCode){
+    if(transList[mycar].find((value) => {return value.next == nextLevelCode})){
+        return true;
+    }else{
+        return false;
+    }
+}
 
-    
+function checkPrevHasTransition (prevLevelCode){
+    if(transList[mycar].find((value) => {return value.prev == prevLevelCode})){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 function fadeInTopic(){
     $('.topic-box').addClass('active');
+    if(topicList[topicLevel].video_code === '3-0-0'){
+        addButton();
+    }
 }
 
 function fadeOutTopic(){
     $('.topic-box').removeClass('active');
+    
+    if(topicList[topicLevel].video_code === '3-0-0'){
+        $('.avoid-button').fadeOut();
+    }
 }
 
 function addOptionsVideo(){
     console.log('加入選項影片');
-    let videosHtml;
+    let videosHtml = '';
+
     topicList[topicLevel].options.forEach(function(item){
         let $game_result =  $('#game-animation .result');
         $game_result.empty();
-        videosHtml += `<video id="result-${item.video_code}" controls="false" muted='${isVideoMuted}' paused><source src="./rockyroad/../mp4/${item.video_code}.mp4" type="video/mp4"></video>`;
+        videosHtml += `<video onloadstart="this.playbackRate = 5;" id="result-${item.video_code}" controls="false" muted='${isVideoMuted}' paused><source src="./rockyroad/../mp4/${item.video_code}.mp4" type="video/mp4"></video>`;
         $game_result.append(videosHtml);
     });
 }
@@ -208,6 +365,8 @@ function addTopic(){
 
     topicTitle = topicList[topicLevel].title;
     topicOptions = topicList[topicLevel].options;
+
+    
     
     topicTemplat = `<div class="center"><p class="title">${ topicTitle }</p><div class="topic-option">`;
     for(i = 0;i < topicOptions.length;i++){
