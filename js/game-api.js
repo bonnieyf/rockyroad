@@ -4,7 +4,7 @@ let totalScore = 0; // 總分計算
 let isVideoMuted = false; // 影片是否靜音
 let isAudioMuted = false; // 背景音是否靜音
 let isPlayIntroAnimation = false; // 是否撥放導引動畫
-let currentAudioVolume = 0.5; // 背景音音量
+let currentAudioVolume = 0.3; // 背景音音量
 let topicLevel = 0; // 從第幾關開始
 let topicMaxLenght;
 let topicList;
@@ -45,12 +45,12 @@ $(function(){
 
             // 先埋入所有的影片
             topicList.forEach(function(value){
-                let videos = `<video onloadstart="this.playbackRate = 5;" id="ani-${value.video_code}" controls="false" paused muted='${isVideoMuted}'><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
                 $game_topice.append(videos);
             });
 
             transList[mycar].forEach(function(value){
-                let videos = `<video onloadstart="this.playbackRate = 5;" id="ani-${value.video_code}" controls="false" paused muted='${isVideoMuted}'><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
                 $game_topice.append(videos);
             });
 
@@ -92,7 +92,7 @@ $(function(){
 
         $('.music-sample div').eq(index).addClass('active');
         $('.background-music').empty();
-        let audioHtml =  `<audio id="bg-audio" autoplay loop muted='${isAudioMuted}'><source src="./rockyroad/../music/${currentMusic}.mp3" type="audio/mp3" controls></audio>`
+        let audioHtml =  `<audio id="bg-audio" autoplay loop ${isAudioMuted ? `muted="true"`:''}><source src="./rockyroad/../music/${currentMusic}.mp3" type="audio/mp3" controls></audio>`
         
         $('.background-music').append(audioHtml);
         document.getElementById("bg-audio").volume = currentAudioVolume;
@@ -271,24 +271,28 @@ function handleTopicLevel(){
 
 function addButton(){
     $('body').append('<div class="avoid-button button">閃避</div>');
-    setTimeout(function(){
-        isAvoid = false;
+
+    let timer = setTimeout(function(){
         fadeOutTopic();
-        
-        $('#game-animation .topic').removeClass('active');
-        $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
-        handleTopicLevel();
+
+        isAvoid = false;
+
+        if(!isAvoid){
+            handleTopicLevel();
+        }
     },3000);
 
     $('.avoid-button').click(function(){
-        isAvoid = true;
         fadeOutTopic();
-        
-        $('#game-animation .topic').removeClass('active');
-        $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
-        handleTopicLevel();
+        clearTimeout(timer);
+        isAvoid = true;
+
+        if(isAvoid){
+            handleTopicLevel();
+        }
     });
 
+    
     
 }
 
@@ -305,7 +309,7 @@ function playResultAnimation(){
     
     document.getElementById('ani-'+topicList[topicLevel].video_code).play();
     video.on("playing", function() {
-        addTopic();
+        setTimeout(addTopic, 500);
         addOptionsVideo();
     });
     video.on("ended", function() {
@@ -340,7 +344,7 @@ function fadeOutTopic(){
     $('.topic-box').removeClass('active');
     
     if(topicList[topicLevel].video_code === '3-0-0'){
-        $('.avoid-button').fadeOut();
+        $('.avoid-button').fadeOut(200);
     }
 }
 
@@ -351,7 +355,7 @@ function addOptionsVideo(){
     topicList[topicLevel].options.forEach(function(item){
         let $game_result =  $('#game-animation .result');
         $game_result.empty();
-        videosHtml += `<video onloadstart="this.playbackRate = 5;" id="result-${item.video_code}" controls="false" muted='${isVideoMuted}' paused><source src="./rockyroad/../mp4/${item.video_code}.mp4" type="video/mp4"></video>`;
+        videosHtml += `<video id="result-${item.video_code}" controls="false" ${isVideoMuted ? `muted="true"`:''} paused><source src="./rockyroad/../mp4/${item.video_code}.mp4" type="video/mp4"></video>`;
         $game_result.append(videosHtml);
     });
 }
@@ -366,7 +370,6 @@ function addTopic(){
     topicTitle = topicList[topicLevel].title;
     topicOptions = topicList[topicLevel].options;
 
-    
     
     topicTemplat = `<div class="center"><p class="title">${ topicTitle }</p><div class="topic-option">`;
     for(i = 0;i < topicOptions.length;i++){
