@@ -318,29 +318,25 @@ $r2: 0.85
     position: absolute
     bottom: 100px
     left: 50%
-    transform: translateX(-50%)
+    transform: translateX(-40%)
     width: 200px
     height: 200px
-    border-radius: 50%
-    background-color: black
     color: white
-    font-size: 50px
-    font-weight: bold
-    line-height: 200px
-    text-align: center
     z-index: 50000
     cursor: pointer
     user-select: none
     animation: flashing 800ms linear infinite
+    background: url(../images/btn-dodge.svg) no-repeat center center
+    background-size: contain
 
 
 @keyframes flashing
     0% 
-        background-color: black
+        opacity: 1
     50% 
-        background-color: red
+        opacity: 0
     100% 
-        background-color: black
+        opacity: 1
 
 //選擇音樂
 #init-music-popup

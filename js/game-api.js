@@ -1,9 +1,9 @@
-const API = '../api.json';
+const API = './api.json';
 let gameInitCount = 3; // 遊戲開始前的倒數
 let totalScore = 0; // 總分計算
 let isVideoMuted = false; // 影片是否靜音
 let isAudioMuted = false; // 背景音是否靜音
-let isPlayIntroAnimation = false; // 是否撥放導引動畫
+let isPlayIntroAnimation = true; // 是否撥放導引動畫
 let currentAudioVolume = 0.3; // 背景音音量
 let topicLevel = 0; // 從第幾關開始
 let topicMaxLenght;
@@ -270,7 +270,7 @@ function handleTopicLevel(){
 
 
 function addButton(){
-    $('body').append('<div class="avoid-button button">閃避</div>');
+    $('body').append('<div class="avoid-button button"></div>');
 
     let timer = setTimeout(function(){
         fadeOutTopic();
