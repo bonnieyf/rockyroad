@@ -392,6 +392,19 @@
               <div class="container">
                 <div class="title"><a href="shop.html"><img src="images/shop-title.svg" alt=""></a></div>
               </div>
+              <div class="shop-swiper">
+                <div class="swiper-hero-banner swiper">
+                  <div class="swiper-wrapper shop-slide">
+                    <div class="swiper-slide"><img src="../images/shop-kv-1.jpg"/></div>
+                    <div class="swiper-slide"><img src="../images/shop-kv-2.jpg"/></div>
+                    <div class="swiper-slide"><img src="../images/shop-kv-3.jpg"/></div>
+                    <div class="swiper-slide"><img src="../images/shop-kv-4.jpg"/></div>
+                    <div class="swiper-slide"><img src="../images/shop-kv-5.jpg"/></div>
+                    <div class="swiper-slide"><img src="../images/shop-kv-6.jpg"/></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
             </div>
             <div class="container">
                 <div class="content">
@@ -399,24 +412,60 @@
                       <div class="shop-row">
                         <div class="shop-col">
                           <div class="shop-item">
-                            <img src="images/shop-item1.png" alt="">
+                            <div class="shopitem-swiper">
+                              <div class="swiper-product swiper">
+                                <div class="swiper-wrapper shop-slide">
+                                  <div class="swiper-slide"><img src="../images/shop-motor-1.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-motor-2.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-motor-3.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-motor-4.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-motor-5.jpg"/></div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                              </div>
+                            </div>
                             <p>RockyRoad 三寶上路!!! 擋泥板</p>
                           </div>
                         </div>
                         <div class="shop-col">
                           <div class="shop-item">
-                            <img src="images/shop-item2.png" alt="">
+                            <div class="shopitem-swiper">
+                              <div class="swiper-product swiper">
+                                <div class="swiper-wrapper shop-slide">
+                                  <div class="swiper-slide"><img src="../images/shop-sticker-1.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-sticker-2.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-sticker-3.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-sticker-4.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-sticker-5.jpg"/></div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                              </div>
+                            </div>
                             <p>RockyRoad 注意三寶!!! 車貼</p>
                           </div>
                         </div>
                         <div class="shop-col">
                           <div class="shop-item">
-                            <img src="images/shop-item3.png" alt="">
+                            <div class="shopitem-swiper">
+                              <div class="swiper-product swiper">
+                                <div class="swiper-wrapper shop-slide">
+                                  <div class="swiper-slide"><img src="../images/shop-keyring-1.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-keyring-2.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-keyring-3.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-keyring-4.jpg"/></div>
+                                  <div class="swiper-slide"><img src="../images/shop-keyring-5.jpg"/></div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                              </div>
+                            </div>
                             <p>RockyRoad 嗶嗶!!! 造型鑰匙圈</p>
                           </div>
                         </div>
                       </div>
-                      <div class="btn-shop"><a href="#"><img src="images/shop-btn.svg" alt=""></a></div>
+                      <div class="btn-shop"><a href="https://forms.gle/ch3iwS8vFnWYW5Yw9" target="_blank"><img src="images/shop-btn.svg" alt=""></a></div>
                     </div>
                 </div>
             </div>
@@ -427,10 +476,33 @@
     </div>
     <script src="./js.lilb/jquery.min.js"></script>
     <script src="./js.lilb/gsap.min.js"></script>
-    <script src="./js.lib/aos/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js.lilb/imagesloaded.pkgd.min.js"></script>
     <script src="./js/loaded.js"></script>
     <script src="./js/page.js"></script>
+    <script>
+      var heroSwiper = new Swiper(".swiper-hero-banner", {
+        centeredSlides: true,
+        speed: 1000,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-hero-banner .swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      var itemSwiper = new Swiper(".swiper-product", {
+        centeredSlides: true,
+        speed: 1000,
+        navigation: {
+          nextEl: ".swiper-product .swiper-button-next",
+          prevEl: ".swiper-product .swiper-button-prev",
+        },
+      });
+
+  </script>
 </body>
 </html>
