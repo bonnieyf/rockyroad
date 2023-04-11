@@ -4,7 +4,16 @@ let totalScore = 0; // 總分計算
 let isVideoMuted = false; // 影片是否靜音
 let isAudioMuted = false; // 背景音是否靜音
 let isPlayIntroAnimation = true; // 是否撥放導引動畫
-let currentAudioVolume = 0.3; // 背景音音量
+let volumeList = [
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1
+];
+let volumeCount = 1;
+let maxVolumeCount = volumeList.length - 1;
+let currentAudioVolume = volumeList[volumeCount]; // 背景音音量: 0.2 /0.4 / 0.6 / 0.8 / 1
 let topicLevel = 0; // 從第幾關開始
 let topicMaxLenght;
 let topicList;
@@ -70,6 +79,54 @@ $(function(){
         $('.music-menu a').eq(0).click();
     });
 
+    $(document).on('click','#audio-select a',function(e){
+        let _this = $(this).attr('class');
+        
+        
+        if(_this == 'up' && volumeCount <= maxVolumeCount){
+            console.log('up');
+            $('#audio-select a').show();
+            volumeCount++;
+
+            if(volumeCount >= maxVolumeCount){
+                volumeCount = maxVolumeCount
+                $('#audio-select .up').hide();
+            }
+        }else if(_this == 'down' && volumeCount >= 0){
+            console.log('down');
+            $('#audio-select a').show();
+            volumeCount--;
+
+            if(volumeCount <= 0){
+                volumeCount = 0;
+                $('#audio-select .down').hide();
+            }
+        }
+
+        console.log(volumeCount);
+        
+        
+        switch(volumeCount){
+            case 0:
+                currentAudioVolume = volumeList[0];
+                break;
+            case 1:
+                currentAudioVolume = volumeList[1];
+                break;
+            case 2:
+                currentAudioVolume = volumeList[2];
+                break;
+            case 3:
+                currentAudioVolume = volumeList[3];
+                break;
+            default:
+                currentAudioVolume = volumeList[4];
+                break;
+        }
+        $('#audio-select .volume').removeClass().addClass(`volume volume-${currentAudioVolume * 100}`);
+        document.getElementById("bg-audio").volume = currentAudioVolume * 0.8;
+    });
+
     // 選音樂 popup
     $(document).on('click','.music-menu a',function(e){
         e.preventDefault();
@@ -92,10 +149,15 @@ $(function(){
 
         $('.music-sample div').eq(index).addClass('active');
         $('.background-music').empty();
+        $('#audio-select').show();
+
+
         let audioHtml =  `<audio id="bg-audio" autoplay loop ${isAudioMuted ? `muted="true"`:''}><source src="./rockyroad/../music/${currentMusic}.mp3" type="audio/mp3" controls></audio>`
         
         $('.background-music').append(audioHtml);
-        document.getElementById("bg-audio").volume = currentAudioVolume;
+        $('#audio-select .volume').removeClass().addClass(`volume volume-${currentAudioVolume * 100}`);
+        document.getElementById("bg-audio").volume = currentAudioVolume * 0.8;
+        
 
         
     });

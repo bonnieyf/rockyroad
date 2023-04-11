@@ -635,6 +635,63 @@ $r2: 0.85
 .vsc-controller
     display: none !important
 
+#audio-select
+    position: fixed
+    bottom: 30px
+    left: 30px
+    width: 60px
+    height: auto
+    z-index: 5000
+    display: none
+
+    +maxDesktop
+        bottom: -20px
+        left: 60px
+        transform: rotate(90deg)
+
+    +maxPad
+        left: 60px
+
+    a
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 50%
+        z-index: 50
+
+        &.down
+            top: calc(50% + 5px)
+
+    img,svg
+        max-width: 100%
+        height: auto
+
+    .volume
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        .volume-path
+            opacity: 0
+
+        &.volume-20
+            .volume1
+                opacity: 1
+        &.volume-40
+            .volume1,.volume2
+                opacity: 1
+        &.volume-60
+            .volume1,.volume2,.volume3
+                opacity: 1
+        &.volume-80
+            .volume1,.volume2,.volume3,.volume4
+                opacity: 1
+        &.volume-100
+            .volume-path
+                opacity: 1
+
 
 #game-result
     position: fixed
@@ -644,7 +701,26 @@ $r2: 0.85
     bottom: 0
     z-index: 5000
     background: linear-gradient(0deg, rgba(#B3E2D0,1) 0%,rgba(#EEC7D8,1) 30%,rgba(#F7E9DE,1) 40%,#FDFAF8 100%)
-    // display: none
+    display: none
+
+
+    .licence
+        position: relative
+
+    .result-name
+        position: absolute
+        top: 75px
+        left: 260px
+        width: 210px
+        height: 40px
+        appearance: none
+        font-size: 16px
+        line-height: 1
+        border: none
+        z-index: 20
+
+        &:focus
+            outline: none
 
     .row
         display: flex
