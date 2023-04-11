@@ -1,4 +1,4 @@
-const API = './api.json';
+const API = 'http://rockyroad.02580.me/api/questions.json';
 let gameInitCount = 3; // 遊戲開始前的倒數
 let totalScore = 0; // 總分計算
 let isVideoMuted = false; // 影片是否靜音
