@@ -54,12 +54,12 @@ $(function(){
 
             // 先埋入所有的影片
             topicList.forEach(function(value){
-                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
                 $game_topice.append(videos);
             });
 
             transList[mycar].forEach(function(value){
-                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
                 $game_topice.append(videos);
             });
 
