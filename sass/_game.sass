@@ -692,6 +692,14 @@ $r2: 0.85
             .volume-path
                 opacity: 1
 
+#myChart
+  height: 100%
+  width: 100%
+  min-height: 530px
+  
+#result-licencebox
+    width: 650px
+    height: 430px
 
 #game-result
     position: fixed
@@ -703,18 +711,33 @@ $r2: 0.85
     background: linear-gradient(0deg, rgba(#B3E2D0,1) 0%,rgba(#EEC7D8,1) 30%,rgba(#F7E9DE,1) 40%,#FDFAF8 100%)
     display: none
 
+    .chart
+        position: relative
+        overflow: hidden
+
+        img
+            opacity: 0
+
+        #myChart
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            min-height: 150px
+            
 
     .licence
         position: relative
 
     .result-name
         position: absolute
-        top: 75px
-        left: 260px
-        width: 210px
-        height: 40px
+        top: 24%
+        left: 50%
+        right: 5%
+        height: 50px
         appearance: none
-        font-size: 16px
+        font-size: 24px
         line-height: 1
         border: none
         z-index: 20
@@ -769,3 +792,7 @@ $r2: 0.85
 
         img
             max-width: 100%
+
+
+#myChart-graph-id0-path
+    fill: transparent !important

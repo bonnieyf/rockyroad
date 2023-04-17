@@ -844,11 +844,18 @@
     </div>
       <div class="content">
         <div class="row">
-          <div class="col"><img src="images/game-result-chat.svg" alt=""></div>
           <div class="col">
-            <div class="licence">
-              <img src="images/result_bad_1_licence.svg" alt="">
+            <div class="chart">
+              <div id="myChart"></div>
+              <img src="images/game-result-chat.svg" alt="">
+            </div>
+            
+          </div>
+          <div class="col">
+            <div id="result-licencebox" class="licence">
+              <img src="" id="result-licence" alt="">
               <input type="text" class="result-name" name="result-user-name" placeholder="輸入姓名以生成專屬駕照">
+              
             </div>
             <div class="btns">
               <a href="knowledge.html" class="btn-link"><img src="images/btn-share1.svg" alt=""></a>
@@ -879,6 +886,8 @@
     </div>
 
     <script src="./js.lilb/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script src="./js.lilb/imagesloaded.pkgd.min.js"></script>
     <script src="./js.lilb/gsap.min.js"></script>
     <script src="./js/loaded.js"></script>
