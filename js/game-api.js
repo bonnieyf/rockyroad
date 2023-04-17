@@ -39,15 +39,87 @@ let transList = {
         "motor":[
             {prev: "1-2", next:"1-3",video_code: "1-2_1-3"},
             {prev: "1-4", next:"2-1",video_code: "1-4_2-1"},
-            {prev: "2-1", next:"2-2",video_code: "2-1_2-2"},
             {prev: "2-2", next:"2-3",video_code: "2-2_2-3"},
-            {prev: "2-4", next:"3-0",video_code: "2-4_3-0"}
+            {prev: "2-4", next:"3-1",video_code: "2-4_3-1"},
+            {prev: "3-2", next:"3-3",video_code: "3-2_3-3"}
         ]
     };
 
 
 
 $(function(){
+
+    // let maxScore = Math.max(...scoreList);
+    //     let maxScoreIndex = 1;
+    //     $('#result-licence').attr('src','images/result_'+ maxScoreIndex +'_licence.svg');
+
+    //     let resultConfig = {
+    //         type : 'radar',
+    //         plot : {
+    //             aspect : 'area',
+    //             stacked: true,
+    //         },
+    //         scaleV: {
+    //             values: "0:15:4",
+    //             labels: [ '', '', '', '', '' ],
+    //             item: {
+    //                 "font-color": "orange",
+    //                 "font-family": "Georgia",
+    //                 "font-size": 12,
+    //                 "font-weight": "bold",
+    //                 "font-style": "italic"
+    //             },
+    //             refLine: {
+    //                 'line-color': "none"
+    //             },
+    //             "guide": {
+    //                 "line-color": "#000",
+    //                 "line-width": 2,
+    //                 "line-style": "solid",
+    //             }
+    //             },
+    //         scaleK : {
+    //             labels : ['咄咄逼人型','老子最屌型','就是很想贏型', '要你好看型', '下車PK型'],
+    //             item : {
+    //             fontColor : '#383738',
+    //             padding : '5 10',
+    //             fontSize: '16px'
+    //             },
+    //             tick: {
+    //             lineWidth: 0,
+    //             placement: "outer"
+    //             },
+                
+    //             guide : {
+    //             lineColor : "#000",
+    //             lineStyle : 'solid',
+    //             lineWidth: 2,
+    //             backgroundColor: "#fff #fff"
+    //             }
+    //         },
+    //         series : [
+    //             {
+    //                 values: [
+    //                     scoreList[1],
+    //                     scoreList[2],
+    //                     scoreList[3],
+    //                     scoreList[4],
+    //                     scoreList[5],
+    //                 ]
+    //             }
+    //         ]
+    //     };
+
+    //     zingchart.render({ 
+    //         id : 'myChart', 
+    //         data : resultConfig, 
+    //         height: '100%', 
+    //         width: '100%' 
+    //     });
+
+
+    // ------------------------------------------------------
+    
     let $game_topice =  $('#game-animation .topic');
 
     mycar = localStorage.getItem('myCar') == '極速哺哺' ? 'car' : 'motor';
@@ -63,11 +135,13 @@ $(function(){
             // 先埋入所有的影片
             topicList.forEach(function(value){
                 let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
+                console.log(videos)
                 $game_topice.append(videos);
             });
 
             transList[mycar].forEach(function(value){
                 let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
+                console.log(videos)
                 $game_topice.append(videos);
             });
 
@@ -366,6 +440,8 @@ function handleTopicLevel(){
         });
         
         $('#game-result').fadeIn();
+        $('#audio-select').fadeOut();
+        document.getElementById("bg-audio").volume = currentAudioVolume * 0.5;
 
         
 
@@ -511,6 +587,7 @@ function addButton(){
     });
 
     
+
     
 }
 
@@ -573,7 +650,8 @@ function addOptionsVideo(){
     topicList[topicLevel].options.forEach(function(item){
         let $game_result =  $('#game-animation .result');
         $game_result.empty();
-        videosHtml += `<video id="result-${item.video_code}" controls="false" ${isVideoMuted ? `muted="true"`:''} paused><source src="./rockyroad/../mp4/${item.video_code}.mp4" type="video/mp4"></video>`;
+        videosHtml += `<video id="result-${item.video_code}" controls="false" ${isVideoMuted ? `muted="true"`:''} paused><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${item.video_code}.mp4" type="video/mp4"></video>`;
+        console.log(videosHtml)
         $game_result.append(videosHtml);
     });
 }

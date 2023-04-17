@@ -693,13 +693,12 @@ $r2: 0.85
                 opacity: 1
 
 #myChart
-  height: 100%
-  width: 100%
-  min-height: 530px
-  
-#result-licencebox
-    width: 650px
-    height: 430px
+    height: 100%
+    width: 100%
+    min-height: 530px
+
+    +desktop_xl
+        transform: scale(1.2)
 
 #game-result
     position: fixed
@@ -708,6 +707,7 @@ $r2: 0.85
     width: 100%
     bottom: 0
     z-index: 5000
+    overflow-y: auto
     background: linear-gradient(0deg, rgba(#B3E2D0,1) 0%,rgba(#EEC7D8,1) 30%,rgba(#F7E9DE,1) 40%,#FDFAF8 100%)
     display: none
 
@@ -732,23 +732,30 @@ $r2: 0.85
 
     .result-name
         position: absolute
-        top: 24%
-        left: 50%
+        top: 24.8%
+        left: 51%
         right: 5%
-        height: 50px
+        height: 30px
         appearance: none
-        font-size: 24px
+        font-size: 18px
         line-height: 1
         border: none
         z-index: 20
+
+        +desktop_md2
+            font-size: vw(24px)
 
         &:focus
             outline: none
 
     .row
-        display: flex
+        display: block
         margin-left: -15px
         margin-right: -15px
+
+        +desktop_md2
+            display: flex
+
         .col
             flex: 50%
             padding: 0 15px
@@ -762,30 +769,59 @@ $r2: 0.85
 
     .btns
         display: flex
-        margin-top: 20px
+        margin-top: 30px
         a
             padding: 0 15px
             flex: 50%
 
         img
             max-width: 100%
+
+    
     
     #header-game
         text-align: left
         padding-right: 20px
+
+        .btns
+            display: flex
+            margin-top: 0
+            width: 90px
+            margin-right: -15px
+
+            +desktop_md2
+                margin-top: 20px
+                margin-right: 0
+                width: auto
+                
     .game-title
         padding-left: 30px
         padding-top: 10px
+        width: 300px
+        box-sizing: border-box
         img
             max-width: 400px
 
-    .content
-        max-width: 1000px
-        margin: 0 auto
-        padding-top: 70px
+        +desktop_md2
+            width: auto
 
-        +desktop_sm
-            max-width: 1100px
+    .content
+        display: flex
+        align-items: center
+        max-width: 600px
+        padding-left: 20px
+        padding-right: 20px
+        margin: 0 auto
+        box-sizing: border-box
+        padding-bottom: 50px
+
+        +desktop_md2
+            padding-top: 70px
+            max-width: 1200px
+            width: 90%
+            padding-left: 15px
+            padding-right: 15px
+            padding-bottom: 0
 
         +desktop_xl
             max-width: 1400px
