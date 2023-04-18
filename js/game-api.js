@@ -306,8 +306,12 @@ $(function(){
         let myresult = $(this).attr('data-file');
         let $game_result =  $('#game-animation .result');
         let idx = $(this).index();
+        let currentOption = topicList[topicLevel].options[idx]
         let _isColor = topicList[topicLevel].options[idx].color;
         let _isExtra = topicList[topicLevel].options[idx].extra;
+        let _message = currentOption.message
+        let $_message = $(_message)
+
         console.log('點選的 Video code:'+myresult);
 
         $('.game-popup .inner-textarea').empty();
@@ -318,9 +322,19 @@ $(function(){
         console.log(_isExtra);
         console.log(topicList[topicLevel].options[idx].message);
         console.log('XXXXXXXXX');
+        console.log($_message)
+
+        if ($_message.find('figure').get(0)) {
+            let figure = $_message.find('figure')
+            let imgUrl = figure.data('trix-attachment').url
+            let img = $('<img>').attr('src', imgUrl)
+
+            img.insertBefore(figure)
+        }
+
         if(_isColor == 'red' && _isExtra == ''){
             console.log('========= 警告頁面 =========');
-            $('#game-warning .inner-textarea').append(topicList[topicLevel].options[idx].message);
+            $('#game-warning .inner-textarea').append($_message);
             $('.game-popup.active').removeClass('active');
             $('#game-warning').addClass('active');
             $('.overlay').fadeIn();
@@ -330,7 +344,7 @@ $(function(){
 
         if(_isExtra !== ''){
             console.log('========= 罰單頁面 =========');
-            $('#game-oops .inner-textarea').append(topicList[topicLevel].options[idx].message);
+            $('#game-oops .inner-textarea').append($_message);
             $('.game-popup.active').removeClass('active');
             $('#game-oops').addClass('active');
             $('.overlay').fadeIn();
