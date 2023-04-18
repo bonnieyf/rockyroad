@@ -40,7 +40,7 @@ let transList = {
             {prev: "1-2", next:"1-3",video_code: "1-2_1-3"},
             {prev: "1-4", next:"2-1",video_code: "1-4_2-1"},
             {prev: "2-2", next:"2-3",video_code: "2-2_2-3"},
-            {prev: "2-4", next:"3-1",video_code: "2-4_3-1"},
+            {prev: "2-4", next:"3-0",video_code: "2-4_3-0"},
             {prev: "3-2", next:"3-3",video_code: "3-2_3-3"}
         ]
     };
@@ -89,7 +89,7 @@ $(function(){
     //             lineWidth: 0,
     //             placement: "outer"
     //             },
-                
+
     //             guide : {
     //             lineColor : "#000",
     //             lineStyle : 'solid',
@@ -110,16 +110,16 @@ $(function(){
     //         ]
     //     };
 
-    //     zingchart.render({ 
-    //         id : 'myChart', 
-    //         data : resultConfig, 
-    //         height: '100%', 
-    //         width: '100%' 
+    //     zingchart.render({
+    //         id : 'myChart',
+    //         data : resultConfig,
+    //         height: '100%',
+    //         width: '100%'
     //     });
 
 
     // ------------------------------------------------------
-    
+
     let $game_topice =  $('#game-animation .topic');
 
     mycar = localStorage.getItem('myCar') == '極速哺哺' ? 'car' : 'motor';
@@ -148,7 +148,7 @@ $(function(){
         }
     });
 
-    
+
 
     // 播放開頭打字動畫
     playIntroAnimation();
@@ -163,8 +163,8 @@ $(function(){
 
     $(document).on('click','#audio-select a',function(e){
         let _this = $(this).attr('class');
-        
-        
+
+
         if(_this == 'up' && volumeCount <= maxVolumeCount){
             console.log('up');
             $('#audio-select a').show();
@@ -186,8 +186,8 @@ $(function(){
         }
 
         console.log(volumeCount);
-        
-        
+
+
         switch(volumeCount){
             case 0:
                 currentAudioVolume = volumeList[0];
@@ -240,16 +240,16 @@ $(function(){
 
 
         let audioHtml =  `<audio id="bg-audio" autoplay loop ${isAudioMuted ? `muted="true"`:''}><source src="./rockyroad/../music/${currentMusic}.mp3" type="audio/mp3" controls></audio>`
-        
+
         $('.background-music').append(audioHtml);
         $('#audio-select .volume').removeClass().addClass(`volume volume-${currentAudioVolume * 100}`);
         document.getElementById("bg-audio").volume = currentAudioVolume * 0.8;
-        
 
-        
+
+
     });
 
-    
+
 
     //選擇音樂後進入遊戲
     $(".btn-playgame").click(function(e){
@@ -263,9 +263,9 @@ $(function(){
         video.addClass('active');
 
         // 倒數動畫
-        let timer = setInterval( function() { 
+        let timer = setInterval( function() {
             $('#countdown').remove();
-            let countdown = $('<div id="countdown">'+(gameInitCount==0? '123':'<img src="images/init-number-'+ gameInitCount +'.svg" alt=""></div>')); 
+            let countdown = $('<div id="countdown">'+(gameInitCount==0? '123':'<img src="images/init-number-'+ gameInitCount +'.svg" alt=""></div>'));
             countdown.appendTo($('#init-timer'));
             setTimeout( () => {
                 if (gameInitCount >-1) {
@@ -282,14 +282,14 @@ $(function(){
             }
         }, 800);
 
-        
+
         video.on("playing", function() {
             addTopic();
             addOptionsVideo();
         });
         video.on("ended", function() {
             fadeInTopic();
-            
+
         });
     });
 
@@ -314,34 +314,43 @@ $(function(){
 
         let oldScroe = scoreList[myscore];
         scoreList[myscore] = oldScroe+myscore;
-
-        if(_isExtra && _isColor == 'red'){
-            $('#game-oops .inner-textarea').append(topicList[topicLevel].options[idx].extra);
-            $('#game-oops').addClass('active');
-            $('.overlay').fadeIn();
-            $('.btn-next-more').attr('data-file',myresult);
-            
-        }else if(_isColor == 'red'){
+        console.log(_isColor);
+        console.log(_isExtra);
+        console.log(topicList[topicLevel].options[idx].message);
+        console.log('XXXXXXXXX');
+        if(_isColor == 'red' && _isExtra == ''){
+            console.log('========= 警告頁面 =========');
             $('#game-warning .inner-textarea').append(topicList[topicLevel].options[idx].message);
+            $('.game-popup.active').removeClass('active');
             $('#game-warning').addClass('active');
             $('.overlay').fadeIn();
             $('.btn-next-more').attr('data-file',myresult);
-
-        }else{
-
-            fadeOutTopic();
-
-            $game_topice.removeClass('active');
-            $game_result.addClass('active');
-            $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
-            $('#result-'+myresult).addClass('active');
-        
-            document.getElementById('result-'+myresult).play();
-            
-            $('#result-'+myresult).on("ended", function() {
-                handleTopicLevel();
-            });
+            return;
         }
+
+        if(_isExtra !== ''){
+            console.log('========= 罰單頁面 =========');
+            $('#game-oops .inner-textarea').append(topicList[topicLevel].options[idx].message);
+            $('.game-popup.active').removeClass('active');
+            $('#game-oops').addClass('active');
+            $('.overlay').fadeIn();
+            $('.btn-next-more').attr('data-file',myresult);
+            return;
+        }
+
+        fadeOutTopic();
+
+        $game_topice.removeClass('active');
+        $game_result.addClass('active');
+        $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
+        $('#result-'+myresult).addClass('active');
+
+        document.getElementById('result-'+myresult).play();
+
+        $('#result-'+myresult).on("ended", function() {
+            handleTopicLevel();
+        });
+
         console.log(`%c======= 總分 ${scoreList} 分======`, 'color: red');
         console.log(`%c======= 點選此選項增加 ${myscore} 分======`, 'color: red');
 
@@ -359,7 +368,7 @@ $(function(){
         $('#game-animation .result').addClass('active');
         $('#ani-'+topicList[topicLevel].video_code).removeClass('active');
         $('#result-'+videoCode).addClass('active');
-        
+
 
         document.getElementById('result-'+videoCode).play();
         $('#result-'+videoCode).on("ended", function() {
@@ -369,7 +378,7 @@ $(function(){
 
 
 
-    
+
 });
 
 function share_fb() {
@@ -424,7 +433,7 @@ function handleTopicLevel(){
                 "bad_3":scoreList[3],
                 "bad_4":scoreList[4],
                 "bad_5":scoreList[5],
-                
+
             }
         }
 
@@ -438,12 +447,12 @@ function handleTopicLevel(){
               console.log(res.id)
             }
         });
-        
+
         $('#game-result').fadeIn();
         $('#audio-select').fadeOut();
         document.getElementById("bg-audio").volume = currentAudioVolume * 0.5;
 
-        
+
 
         let maxScore = Math.max(...scoreList);
         let maxScoreIndex = scoreList.indexOf(maxScore);
@@ -485,7 +494,7 @@ function handleTopicLevel(){
                 lineWidth: 0,
                 placement: "outer"
                 },
-                
+
                 guide : {
                 lineColor : "#000",
                 lineStyle : 'solid',
@@ -506,11 +515,11 @@ function handleTopicLevel(){
             ]
         };
 
-        zingchart.render({ 
-            id : 'myChart', 
-            data : resultConfig, 
-            height: '100%', 
-            width: '100%' 
+        zingchart.render({
+            id : 'myChart',
+            data : resultConfig,
+            height: '100%',
+            width: '100%'
         });
 
         $('#game-animation').hide();
@@ -519,9 +528,11 @@ function handleTopicLevel(){
 
     if(topicList[topicLevel].video_code == '3-0-0'){
         if(isAvoid){
-            topicLevel = 9;
-        }else{
+            console.log('閃避成功！！！！');
             topicLevel = 10;
+        }else{
+            console.log('閃避失敗！！！！');
+            topicLevel = 9;
         }
     }else{
         if(topicList[topicLevel].video_code == '3-1-1-0'){
@@ -538,7 +549,7 @@ function handleTopicLevel(){
     nextLevelCode = topicList[topicLevel].video_code.slice(0,3);
     console.log('下一個關卡: '+nextLevelCode);
 
-    
+
 
 
     if(checkHasTransition(nextLevelCode)){
@@ -572,6 +583,7 @@ function addButton(){
         isAvoid = false;
 
         if(!isAvoid){
+            console.log('閃避失敗！！！！！！！！！');
             handleTopicLevel();
         }
     },3000);
@@ -580,15 +592,15 @@ function addButton(){
         fadeOutTopic();
         clearTimeout(timer);
         isAvoid = true;
-
         if(isAvoid){
+            console.log('閃避成功！！！！！！！！！');
             handleTopicLevel();
         }
     });
 
-    
 
-    
+
+
 }
 
 function playResultAnimation(){
@@ -601,7 +613,7 @@ function playResultAnimation(){
     let video = $('#ani-'+topicList[topicLevel].video_code);
     $('#game-animation .topic video').removeClass('active');
     video.addClass('active');
-    
+
     document.getElementById('ani-'+topicList[topicLevel].video_code).play();
     video.on("playing", function() {
         setTimeout(addTopic, 500);
@@ -637,7 +649,7 @@ function fadeInTopic(){
 
 function fadeOutTopic(){
     $('.topic-box').removeClass('active');
-    
+
     if(topicList[topicLevel].video_code === '3-0-0'){
         $('.avoid-button').fadeOut(200);
     }
@@ -666,7 +678,7 @@ function addTopic(){
     topicTitle = topicList[topicLevel].title;
     topicOptions = topicList[topicLevel].options;
 
-    
+
     topicTemplat = `<div class="center"><p class="title">${ topicTitle }</p><div class="topic-option">`;
     for(i = 0;i < topicOptions.length;i++){
         topicTemplat += `<a href="#" class="choose-myoption option" data-score="${topicOptions[i].power}" data-file="${topicOptions[i].video_code}">
