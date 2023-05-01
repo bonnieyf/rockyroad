@@ -13,7 +13,7 @@ let scoreList = [
 ];
 let isVideoMuted = isMobileDevice() ? true : false; // 影片是否靜音
 let isAudioMuted = false; // 背景音是否靜音
-let isPlayIntroAnimation = false; // 是否撥放導引動畫
+let isPlayIntroAnimation = true; // 是否撥放導引動畫
 let volumeList = [
     0.2,
     0.4,
@@ -25,7 +25,7 @@ let userNumber;
 let volumeCount = 2;
 let maxVolumeCount = volumeList.length - 1;
 let currentAudioVolume = volumeList[volumeCount]; // 背景音音量: 0.2 /0.4 / 0.6 / 0.8 / 1
-let topicLevel = 9; // 從第幾關開始
+let topicLevel = 0; // 從第幾關開始
 let topicMaxLenght;
 let topicList;
 let mycar;
