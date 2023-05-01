@@ -1,14 +1,19 @@
 const API = 'http://rockyroad.02580.me/api/questions.json';
 const RESULT_API = 'http://rockyroad.02580.me/';
+const URL = './rockyroad/../mp4/';
+
+// const API = 'js/api.json';
+// const URL = './mp4/';
+
 let dataURL;
 let gameInitCount = 3; // 遊戲開始前的倒數
 let totalScore = 0;// 總分計算
 let scoreList = [
     0,0,0,0,0,0
 ];
-let isVideoMuted = false; // 影片是否靜音
+let isVideoMuted = isMobileDevice() ? true : false; // 影片是否靜音
 let isAudioMuted = false; // 背景音是否靜音
-let isPlayIntroAnimation = true; // 是否撥放導引動畫
+let isPlayIntroAnimation = false; // 是否撥放導引動畫
 let volumeList = [
     0.2,
     0.4,
@@ -20,7 +25,7 @@ let userNumber;
 let volumeCount = 2;
 let maxVolumeCount = volumeList.length - 1;
 let currentAudioVolume = volumeList[volumeCount]; // 背景音音量: 0.2 /0.4 / 0.6 / 0.8 / 1
-let topicLevel = 0; // 從第幾關開始
+let topicLevel = 9; // 從第幾關開始
 let topicMaxLenght;
 let topicList;
 let mycar;
@@ -134,13 +139,13 @@ $(function(){
 
             // 先埋入所有的影片
             topicList.forEach(function(value){
-                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" ${isMobileDevice()? '':'controls="false"'} playsinline style="pointer-events: none;"  paused ${isVideoMuted ? `muted="true"`:''}><source src="${URL}${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
                 console.log(videos)
                 $game_topice.append(videos);
             });
 
             transList[mycar].forEach(function(value){
-                let videos = `<video id="ani-${value.video_code}" controls="false" paused ${isVideoMuted ? `muted="true"`:''}><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" ${isMobileDevice()? '':'controls="false"'} playsinline style="pointer-events: none;"  paused ${isVideoMuted ? `muted="true"`:''}><source src="${URL}${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
                 console.log(videos)
                 $game_topice.append(videos);
             });
@@ -676,7 +681,7 @@ function addOptionsVideo(){
     topicList[topicLevel].options.forEach(function(item){
         let $game_result =  $('#game-animation .result');
         $game_result.empty();
-        videosHtml += `<video id="result-${item.video_code}" controls="false" ${isVideoMuted ? `muted="true"`:''} paused><source src="./rockyroad/../mp4/${mycar== 'motor' ? 'motor/': ''}${item.video_code}.mp4" type="video/mp4"></video>`;
+        videosHtml += `<video id="result-${item.video_code}" ${isMobileDevice()? '': controls="false"} playsinline ${isVideoMuted ? `muted="true"`:''} paused><source src="${URL}${mycar== 'motor' ? 'motor/': ''}${item.video_code}.mp4" type="video/mp4"></video>`;
         console.log(videosHtml)
         $game_result.append(videosHtml);
     });
@@ -728,3 +733,15 @@ function playIntroAnimation(){
         $('#init-popup').addClass('active');
     }
 }
+
+
+function isMobileDevice() {
+    let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+    for (var i = 0; i < mobileDevices.length; i++) {
+        if (navigator.userAgent.match(mobileDevices[i])) {
+          //console.log("isMobileDevice: match " + mobileDevices[i]);
+          return true;
+        }
+    }
+    return false
+  }

@@ -2,6 +2,8 @@ $r0: 0.9
 $r: 0.7
 $r2: 0.85
 
+.game
+    background: #000
 #init
     position: fixed
     top: 50%
@@ -55,6 +57,20 @@ $r2: 0.85
 
     // font-family: ロックンロール One
 
+*::-webkit-media-controls-panel
+  display: none!important
+  -webkit-appearance: none
+
+
+*::--webkit-media-controls-play-button
+  display: none!important
+  -webkit-appearance: none
+
+
+*::-webkit-media-controls-start-playback-button
+  display: none!important
+  -webkit-appearance: none
+
 
 #timer
     position: fixed
@@ -69,6 +85,8 @@ $r2: 0.85
         left: 0
 
 .select-msg
+    position: relative
+    z-index: 200
     max-width: 1320px * $r
     margin: 50px auto 40px
 
@@ -223,6 +241,9 @@ $r2: 0.85
     +maxDesktop
         width: 90%
 
+    +forMobile
+        width: 70%
+
     .bg
         position: relative
         width: 100%
@@ -259,6 +280,9 @@ $r2: 0.85
         +maxPad
             padding: 20px 15px
 
+        +forMobile
+            padding: 10px
+
         p
             font-size: 30px
             line-height: 1.5
@@ -267,6 +291,9 @@ $r2: 0.85
 
             +phone
                 font-size: 18px
+
+            +forMobile
+                font-size: 14px
             b
                 font-weight: normal
                 color: #FF00FF
@@ -286,10 +313,21 @@ $r2: 0.85
                 width: 80%
                 float: right
 
+            +forMobile
+                display: block
+                width: 80%
+                float: right
+
         .more-text
             +maxPad
                 display: block
                 width: 40%
+                float: left
+                margin-top: 15px
+
+            +forMobile
+                display: block
+                width: 32%
                 float: left
                 margin-top: 15px
             
@@ -315,7 +353,7 @@ $r2: 0.85
             vertical-align: bottom
 
 .button
-    position: absolute
+    position: fixed
     bottom: 100px
     left: 50%
     transform: translateX(-40%)
@@ -330,6 +368,14 @@ $r2: 0.85
     background-position: center center
     background-repeat: no-repeat
     background-size: contain
+
+    +forMobile
+        width: 150px
+        height: 150px
+        bottom: 3%
+        left: unset
+        right: 3%
+        transform: none
 
 
 @keyframes flashing
@@ -368,6 +414,11 @@ $r2: 0.85
             margin-top: 10px
             margin-bottom: 10px
 
+        +forMobile
+            font-size: 14px
+            margin-top: 10px
+            margin-bottom: 10px
+
         &.notice-msg
             color: #46ECDC
             font-size: 20px
@@ -376,7 +427,11 @@ $r2: 0.85
             margin-top: 20px
 
             +phone
-                font-size: 16px
+                font-size: 15px
+
+            +forMobile
+                font-size: 14px
+                padding-bottom: 10px
 
         b
             color: #FFA3D9
@@ -385,6 +440,9 @@ $r2: 0.85
 .choose-music
     display: flex
     align-items: center
+
+    +forMobile
+        justify-content: center
 
     .left,.right
         position: relative
@@ -395,6 +453,9 @@ $r2: 0.85
         +maxPad
             padding: 0 15px
 
+    .left
+        +forMobile
+            display: none
 
     .music-sample
         position: relative
@@ -407,6 +468,8 @@ $r2: 0.85
             width: 100px
             max-width: 100%
             margin: 0 auto
+
+        
         div
             position: absolute
             top: 0
@@ -416,6 +479,7 @@ $r2: 0.85
 
             &:nth-child(1)
                 position: relative
+
 
             &.active
                 opacity: 1
@@ -430,6 +494,9 @@ $r2: 0.85
 
     +phone
         width: 120px
+    +forMobile
+        width: 110px
+        transform: translateX(10px)
 
     img
         max-width: 100%
@@ -453,6 +520,11 @@ $r2: 0.85
 
     +phone
         font-size: 16px
+    
+    +forMobile
+        font-size: 16px
+        margin-top: 10px
+        margin-bottom: 10px
 
     ol
         margin: 0
@@ -463,6 +535,8 @@ $r2: 0.85
         
         +phone
             margin-bottom: 10px
+        +forMobile
+            margin-bottom: 3px
 
         &.active 
             .ico
@@ -516,6 +590,13 @@ $r2: 0.85
     background-color: rgba(white,.85)
     user-select: none
 
+    +forMobile
+        width: 90%
+        box-sizing: border-box
+    +forMobile
+        padding: 10px
+        border-radius: 30px
+
     p.title
         color: black
         font-size: 30px
@@ -525,6 +606,14 @@ $r2: 0.85
         text-align: center
         margin: 20px 0 40px
 
+        +maxPad
+            font-size: 26px
+            margin-bottom: 30px
+
+        +forMobile
+            font-size: 19px
+            margin-bottom: 15px
+            margin-top: 10px
     // .center
     //     padding-left: 20px
     //     padding-right: 20px
@@ -534,6 +623,12 @@ $r2: 0.85
         width: 100%
         align-items: stretch
         margin-bottom: 10px
+
+        +maxPad
+            flex-flow: column
+
+        +forMobile
+            flex-flow: wrap row
 
     .option
         flex: 1
@@ -545,6 +640,9 @@ $r2: 0.85
         min-height: 50px
         color: black
         text-decoration: none
+
+        +maxPad
+            margin-bottom: 10px
 
         &:hover
             background-color: #FFF645
@@ -564,6 +662,11 @@ $r2: 0.85
             font-family: 'Dela Gothic One', Arial, Helvetica, sans-serif
             font-weight: 600
             
+            +maxPad
+                font-size: 26px
+
+            +forMobile
+                font-size: 20px
 
         .desc
             text-decoration: none
@@ -575,6 +678,13 @@ $r2: 0.85
             line-height: 1.2
             display: flex
             align-items: center
+
+            +maxPad
+                font-size: 16px
+
+            +forMobile
+                font-size: 15px
+                padding: 8px 10px
 
 
 
@@ -653,6 +763,8 @@ $r2: 0.85
 
     +maxPad
         left: 60px
+        width: 50px
+        display: none !important
 
     a
         display: block

@@ -39,6 +39,9 @@ body,html
         +phone
             width: 320px
 
+        +forMobile
+            width: 320px
+
     .loading-bar
         position: relative
         width: 100%
@@ -50,11 +53,16 @@ body,html
         +phone
             height: 60px * 0.9 * 0.8
 
+        +forMobile
+            height: 60px * 0.9 * 0.8
+
     .loading-text
         width: 392px * 0.9
         margin: 0 auto
 
         +phone
+            width: 392px * 0.9 * 0.8
+        +forMobile
             width: 392px * 0.9 * 0.8
 
 
@@ -81,6 +89,11 @@ body,html
             background-position: 0 0
             background-size: 15px auto
 
+        +forMobile
+            background-image: linear-gradient(90deg, transparent 50%, #ffffff 50%)
+            background-position: 0 0
+            background-size: 15px auto
+
 
 #init-timer
     position: fixed
@@ -102,6 +115,9 @@ body,html
         transform: translateX(-50%) translateY(-50%)
         transform-origin: center
 
+        +forMobile
+            height: 100px
+
         img
             position: absolute
             top: 50%
@@ -112,6 +128,9 @@ body,html
     .center
         position: relative
         width: 200px
+
+        +forMobile
+            width: 100px
 
 
        
@@ -152,6 +171,12 @@ body,html
     opacity: 0
     margin-top: -100px
 
+    +maxPad
+        width: 120%
+
+    +forMobile
+        width: 70%
+
     &.active
         visibility: initial
         opacity: 1
@@ -175,6 +200,17 @@ body,html
         line-height: 1.5
         text-align: center
 
+        +maxPad
+            top: 31%
+            width: 60%
+            height: 13vh
+            font-size: 16px
+
+        +forMobile
+            top: 33%
+            width: 60%
+            height: 27vh
+            font-size: 16px
 
     .btn-next-more
         position: absolute
@@ -182,6 +218,16 @@ body,html
         right: 80px
         width: 300px
         z-index: 200
+
+        +maxPad
+            bottom: 0%
+            right: 12%
+            width: 33%
+
+        +forMobile
+            bottom: 0%
+            right: 12%
+            width: 33%
         a
             display: block
         img
@@ -200,6 +246,14 @@ body,html
     visibility: hidden
     opacity: 0
     margin-top: -100px
+
+    +maxPad
+        width: 116%
+        transform: translateX(-52%) translateY(-50%)
+
+    +forMobile
+        width: 70%
+        transform: translateX(-52%) translateY(-50%)
 
     &.active
         visibility: initial
@@ -224,6 +278,18 @@ body,html
         line-height: 1.5
         text-align: center
 
+        +maxPad
+            top: 31%
+            width: 60%
+            height: 13vh
+            font-size: 16px
+
+        +forMobile
+            top: 33%
+            width: 60%
+            height: 27vh
+            font-size: 14px
+
     img
         max-width: 100%
 
@@ -233,6 +299,16 @@ body,html
         right: 80px
         width: 300px
         z-index: 200
+
+        +maxPad
+            bottom: 0%
+            right: 12%
+            width: 33%
+
+        +forMobile
+            bottom: 0%
+            right: 12%
+            width: 33%
         a
             display: block
         img
