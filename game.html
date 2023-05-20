@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+TC:wght@400;700;900&family=RocknRoll+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/web.css">
+    <link rel="stylesheet" href="css/web.css?v=20230519">
+    <style>
+      @media (orientation: portrait) and (max-device-width: 768px){
+        html:not(.has-finished) #alert-rotate{
+          display: block
+        }
+      }
+
+      @media (orientation: landscape) and (min-device-width: 768px){
+        #alert-rotate{
+            display: none
+          }
+      }
+      #myChart{
+        margin-bottom: 30px;
+      }
+      #myChart-license-text,#myChart-tools{
+        display: none !important;
+      }
+    </style>
 </head>
 <body class="game">
 
@@ -384,7 +403,7 @@
 
     <div id="alert-rotate">
         <div class="content">
-            <h3>請翻轉手機得到以更好的遊戲體驗！</h3>
+            <h3>請翻轉手機以得到更好的遊戲體驗！</h3>
             <div class="icon"><img src="images/alert-rotate-icon.svg" alt=""></div>
             <p>Rotate Your Phone For Better Experience！</p>
         </div>
@@ -433,7 +452,7 @@
           </div>
         </div>
       </div>
-      <div class="btn-next-more"><a href="#"><img src="images/btn-isee.svg" alt=""></a></div>
+      <div class="btn-next-more"><a><img src="images/btn-isee.svg" alt=""></a></div>
     </div>
 
 
@@ -451,7 +470,7 @@
           </div>
         </div>
       </div>
-      <div class="btn-next-more"><a href="#"><img src="images/btn-isee.svg" alt=""></a></div>
+      <div class="btn-next-more"><a ><img src="images/btn-isee.svg" alt=""></a></div>
     </div>
 
     <div id="init-timer">
@@ -852,17 +871,23 @@
 
           </div>
           <div class="col">
-            <div id="result-licencebox" class="licence">
-              <img src="" id="result-licence" alt="">
-              <input type="text" class="result-name" name="result-user-name" placeholder="輸入姓名以生成專屬駕照">
-
+            <div id="cloneDiv">
+              <div id="result-licencebox" class="licence">
+                <img src="" id="result-licence" alt="">
+                <input type="text" class="result-name" maxlength="6" name="result-user-name" placeholder="輸入姓名以生成專屬駕照">
+              </div>
             </div>
-            <div class="btns">
-              <a href="/knowledge" class="btn-link"><img src="images/btn-share1.svg" alt=""></a>
-              <a href="#" class="btn-share btn-link"><img src="images/btn-share2.svg" alt=""></a>
-            </div>
+            
+            <img src="" id="result-licence-message" alt="">
           </div>
         </div>
+      </div>
+
+      <div id="canvas"></div>
+
+      <div class="btns">
+        <a href="/knowledge" target="_blank" class="btn-link"><img src="images/btn-share1.svg" alt=""></a>
+        <a href="#" target="_blank" class="btn-share btn-link"><img src="images/btn-share3.svg" alt=""></a>
       </div>
     </div>
 
@@ -890,8 +915,8 @@
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script src="./js.lilb/imagesloaded.pkgd.min.js"></script>
     <script src="./js.lilb/gsap.min.js"></script>
-    <script src="./js/loaded.js"></script>
-    <script src="./js/page.js"></script>
-    <script src="./js/game-api.js"></script>
+    <script src="./js/loaded.js?v=20230519"></script>
+    <script src="./js/page.js?v=20230519"></script>
+    <script src="./js/game-api.js?v=20230519"></script>
 </body>
 </html>

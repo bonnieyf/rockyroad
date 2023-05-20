@@ -57,6 +57,7 @@ $(function(){
     // let maxScore = Math.max(...scoreList);
     //     let maxScoreIndex = 1;
     //     $('#result-licence').attr('src','images/result_'+ maxScoreIndex +'_licence.svg');
+    //     $('#result-licence-message').attr('src','images/result_'+ maxScoreIndex +'_msg.svg');
 
     //     let resultConfig = {
     //         type : 'radar',
@@ -139,13 +140,13 @@ $(function(){
 
             // 先埋入所有的影片
             topicList.forEach(function(value){
-                let videos = `<video id="ani-${value.video_code}" ${isMobileDevice()? '':'controls="false"'} playsinline style="pointer-events: none;"  paused ${isVideoMuted ? `muted="true"`:''}><source src="${URL}${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" ${isMobileDevice()? '':'controls="false"'} playsinline preload="auto" style="pointer-events: none;" paused ${isVideoMuted ? `muted="true"`:''}><source src="${URL}${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
                 console.log(videos)
                 $game_topice.append(videos);
             });
 
             transList[mycar].forEach(function(value){
-                let videos = `<video id="ani-${value.video_code}" ${isMobileDevice()? '':'controls="false"'} playsinline style="pointer-events: none;"  paused ${isVideoMuted ? `muted="true"`:''}><source src="${URL}${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
+                let videos = `<video id="ani-${value.video_code}" ${isMobileDevice()? '':'controls="false"'} playsinline preload="auto" style="pointer-events: none;" paused ${isVideoMuted ? `muted="true"`:''}><source src="${URL}${mycar== 'motor' ? 'motor/': ''}${value.video_code}.mp4" type="video/mp4"></video>`
                 console.log(videos)
                 $game_topice.append(videos);
             });
@@ -298,9 +299,17 @@ $(function(){
         });
     });
 
-    $(document).on('click','.btn-share.btn-link',function(e){
-        e.preventDefault();
-        share_fb();
+    $(document).on('click','.btn-share.btn-link',function()
+    {
+        let userName = $('input[name="result-user-name"]').val();
+        if(userName.length == ''){
+            alert('請填寫姓名資料!');
+            return false;
+        }
+
+
+        $('input[name="result-user-name"]').prop('readonly', true);
+        share_fb(userName);
     });
 
     //選擇每一題選項後
@@ -376,7 +385,8 @@ $(function(){
     });
 
 
-    $(document).on('click','.btn-next-more',function(){
+    $(document).on('click','.btn-next-more',function(e){
+        e.preventDefault();
         $('.game-popup').removeClass('active');
         $('.overlay').fadeOut();
 
@@ -400,14 +410,7 @@ $(function(){
 
 });
 
-function share_fb() {
-    let userName = $('input[name="result-user-name"]').val();
-    console.log(userName);
-    if(userName.length == ''){
-        alert('請填寫姓名資料!');
-    }
-
-    console.log(userNumber);
+function share_fb(userName) {
     $.ajax({
         url: RESULT_API+'scores/'+userNumber,
         method:"PUT",
@@ -421,25 +424,63 @@ function share_fb() {
         }
     });
 
-	var url = encodeURI('http://rockyroad.02580.me/');
-    var img= encodeURI('http://rockyroad.02580.me/images/meta.png');
-    var totalurl = encodeURIComponent(url+'?img='+img);
-  	var share_link = "https://www.facebook.com/sharer/sharer.php?u="+totalurl;
-  	window.open(share_link,'_blank');
+
+    const maxScore = Math.max(...scoreList);
+
+    const scoreIndex = scoreList.indexOf(maxScore);
+    let license_type =  '';
+
+    switch(scoreIndex){
+        case 1:
+            license_type = 'bad_1';
+            break;
+        case 2:
+            license_type = 'bad_2';
+            break;
+        case 3:
+            license_type = 'bad_3';
+            break;
+        case 4:
+            license_type = 'bad_4';
+            break;
+        case 5:
+            license_type = 'bad_5';
+            break;
+        default:
+            license_type = 'good_boy';
+            break;
+    }
+
+    console.log(license_type)
+    console.log(`http://rockyroad.02580.me/license?name=${userName}&license_type=${license_type}`);
+    $('#game-result .btn-share').attr('href',`http://rockyroad.02580.me/license?name=${userName}&license_type=${license_type}`);
 }
 
 function capture() {
-    html2canvas(document.querySelector("#result-licencebox")).then(function (canvas) {
-        var extra_canvas = document.createElement("canvas");
-        let c_width = $('#result-licencebox').width();
-        let c_height = $('#result-licencebox').height();
-            extra_canvas.setAttribute('width',c_width);
-            extra_canvas.setAttribute('height',c_height);
-            var ctx = extra_canvas.getContext('2d');
-            ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,c_width,c_height);
-            dataURL = extra_canvas.toDataURL();
-      });
+    let html = $("#cloneDiv").html();
+	let iframe = document.createElement("iframe");
+	iframe.style.width = "785px";
+	iframe.style.height = "100%";
+	document.querySelector('#game-result').appendChild(iframe);
+	iframe.srcdoc = html;
+
+	iframe.addEventListener("load", () => {
+		 $('iframe').contents().find("head")
+     .append($("<link rel='stylesheet' href='css/web.css'>"));
+		
+		 html2canvas(iframe.contentWindow.document.body).then(function(canvas) {
+			 let filename = "image.jpg";
+			 let link = document.createElement("a");
+			 link.download = filename.toLowerCase();
+			 canvas.toBlob( function(blob) {
+							link.href = URL.createObjectURL(blob);
+							link.click();
+					}, 'image/jpg');
+			 });
+	});
+
   }
+
 function handleTopicLevel(){
 
     if(topicLevel === topicMaxLenght){
@@ -475,7 +516,10 @@ function handleTopicLevel(){
 
         let maxScore = Math.max(...scoreList);
         let maxScoreIndex = scoreList.indexOf(maxScore);
+        $('html').addClass('has-finished');
         $('#result-licence').attr('src','images/result_'+ maxScoreIndex +'_licence.svg');
+        $('#result-licence-message').attr('src','images/result_'+ maxScoreIndex +'_msg.svg');
+        
 
         let resultConfig = {
             type : 'radar',
@@ -554,7 +598,7 @@ function handleTopicLevel(){
             topicLevel = 9;
         }
     }else{
-        if(topicList[topicLevel].video_code == '3-1-1-0'){
+        if(topicList[topicLevel].video_code == '3-1-1-0' | topicList[topicLevel].video_code == '3-1-2-0'){
             topicLevel = 11;
         }else{
             topicLevel++;
@@ -700,7 +744,7 @@ function addTopic(){
 
     topicTemplat = `<div class="center"><p class="title">${ topicTitle }</p><div class="topic-option">`;
     for(i = 0;i < topicOptions.length;i++){
-        topicTemplat += `<a href="#" class="choose-myoption option" data-score="${topicOptions[i].power}" data-file="${topicOptions[i].video_code}">
+        topicTemplat += `<a href="" class="choose-myoption option" data-score="${topicOptions[i].power}" data-file="${topicOptions[i].video_code}">
         <div class="number">${number[i]}</div>
         <div class="desc">${topicOptions[i].text.substring(2, topicOptions[i].text.length)}</div>
         </a>`;

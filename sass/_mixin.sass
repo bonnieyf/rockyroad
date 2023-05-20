@@ -19,7 +19,11 @@
         @content
 
 @mixin forMobile
-    @media  (orientation: portrait) ,(max-width: 1024px) and  (max-height: 515px)
+    @media (orientation: portrait) ,(max-width: 1024px) and  (max-height: 515px)
+        @content
+
+@mixin forPad
+    @media (orientation: portrait) , (max-width: 1100px)
         @content
 
 @mixin maxDesktop

@@ -627,7 +627,8 @@ $r2: 0.85
 
         +maxPad
             flex-flow: column
-
+        +phone
+            flex-flow: column
         +forMobile
             flex-flow: wrap row
 
@@ -730,13 +731,14 @@ $r2: 0.85
         pointer-events: none
         opacity: 0
         width: 100%
-        height: 100%
+        height: 100vh
         position: absolute
         top: 50%
         left: 50%
         transform: translate(-50%,-50%)
         object-fit: cover
         object-position: center
+        transition: opacity .5s linear
 
         &.active
             opacity: 1
@@ -757,13 +759,22 @@ $r2: 0.85
     z-index: 5000
     display: none
 
-    +maxDesktop
-        bottom: -20px
-        left: 60px
-        transform: rotate(90deg)
+    // +maxDesktop
+    //     bottom: -20px
+    //     left: 60px
+    //     transform: rotate(90deg)
 
-    +maxPad
-        left: 60px
+    +forPad
+        left: -1000px
+        opacity: 0
+        pointer-events: none
+        width: 50px
+        display: none !important
+
+    +forMobile
+        left: -1000px
+        opacity: 0
+        pointer-events: none
         width: 50px
         display: none !important
 
@@ -815,6 +826,9 @@ $r2: 0.85
     +desktop_xl
         transform: scale(1.2)
 
+    +maxPad
+        margin-bottom: 30px
+
 #game-result
     position: fixed
     top: 0
@@ -829,6 +843,9 @@ $r2: 0.85
     .chart
         position: relative
         overflow: hidden
+        
+        +phone
+            margin-bottom: 30px
 
         img
             opacity: 0
@@ -847,19 +864,27 @@ $r2: 0.85
 
     .result-name
         position: absolute
-        top: 24.8%
+        top: 23%
         left: 51%
         right: 5%
-        height: 30px
+        height: 40px
         appearance: none
         font-size: 18px
-        line-height: 1
+        line-height: 40px
         border: none
         z-index: 20
-
+        color: #000
+        font-weight: bold
+        background: none
+        padding: 0
+        
         +desktop_md2
             font-size: vw(24px)
 
+        +forMobile
+            height: 28px
+            line-height: 1
+            
         &:focus
             outline: none
 
@@ -885,6 +910,8 @@ $r2: 0.85
     .btns
         display: flex
         margin-top: 30px
+        max-width: 550px
+        margin: 30px auto
         a
             padding: 0 15px
             flex: 50%
@@ -897,6 +924,9 @@ $r2: 0.85
     #header-game
         text-align: left
         padding-right: 20px
+
+        +phone
+            height: 60px
 
         .btns
             display: flex
@@ -920,6 +950,10 @@ $r2: 0.85
         +desktop_md2
             width: auto
 
+        +phone
+            width: 220px
+            padding-left: 10px
+
     .content
         display: flex
         align-items: center
@@ -928,18 +962,19 @@ $r2: 0.85
         padding-right: 20px
         margin: 0 auto
         box-sizing: border-box
-        padding-bottom: 50px
+
+        
 
         +desktop_md2
-            padding-top: 70px
             max-width: 1200px
             width: 90%
-            padding-left: 15px
+            padding-left: 15px  
             padding-right: 15px
             padding-bottom: 0
 
         +desktop_xl
             max-width: 1400px
+
 
         img
             max-width: 100%
@@ -947,3 +982,4 @@ $r2: 0.85
 
 #myChart-graph-id0-path
     fill: transparent !important
+
